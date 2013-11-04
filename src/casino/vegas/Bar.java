@@ -76,7 +76,8 @@ public class Bar {
             case "3" :
                 drink = boisson.limonade;
                 break;
-            default:
+            default: 
+                drink = boisson.eau;
                 break;
         }
         
