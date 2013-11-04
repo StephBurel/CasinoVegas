@@ -12,6 +12,9 @@ package casino.vegas;
  */
 public class Démineur extends Jeux {
     
-    
+    public void commencer ()
+    {
+        
+    }
     
 }
