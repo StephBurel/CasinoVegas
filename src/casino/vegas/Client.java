@@ -15,7 +15,7 @@ public class Client extends Personnage {
         Chambre room = new Chambre();
         ChambreFamiliale room2 = (ChambreFamiliale) room;
         System.out.print(room2.getClass());
-        
+         
     }
     
 }
