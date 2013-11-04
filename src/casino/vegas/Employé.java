@@ -7,10 +7,7 @@ package casino.vegas;
 import java.util.Scanner;
 
 import static casino.vegas.CasinoVegas.joueur;
-import static casino.vegas.CasinoVegas.demineur;
-import static casino.vegas.CasinoVegas.jeuDes;
-import static casino.vegas.CasinoVegas.jackpot;
-import static casino.vegas.CasinoVegas.roulette;
+
 /**
  *
  * @author isen
