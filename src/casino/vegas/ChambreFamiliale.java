@@ -4,7 +4,7 @@
  */
 package casino.vegas;
 
-import static projet.java.casino.Chambre.prix;
+import static casino.vegas.Chambre.prix;
 
 /**
  *
