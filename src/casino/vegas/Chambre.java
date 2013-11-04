@@ -17,7 +17,8 @@ public class Chambre {
     public void demarrer()
     {
         
-        
+         System.out.println("Bienvenue à l'hotel du Casino"
+                + "\nVeuillez choisir la chambre désirée");
         
     }
     
