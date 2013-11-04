@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Bar {
 
     static Scanner keyboard = new Scanner(System.in);
-    public int prix;
+    public int dette;
 
     public void demarrer() {
         System.out.println("Bienvenue dans le bar");
@@ -65,7 +65,22 @@ public class Bar {
                 + "\n pour une eau tapez 2"
                 + "\n pour une limonade tapez 3");
         
+        String choice = keyboard.nextLine();
+        switch (choice) {
+            case "1" :
+                drink = boisson.Biere;
+                break;
+            case "2" :
+                drink = boisson.eau;
+                break;
+            case "3" :
+                drink = boisson.limonade;
+                break;
+            default:
+                break;
+        }
         
+        dette += drink.prix;
     }
 
     public void draguer() {
