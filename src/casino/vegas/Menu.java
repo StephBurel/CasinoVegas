@@ -4,7 +4,7 @@
  */
 package casino.vegas;
 
-import java.util.Scanner;
+import static casino.vegas.CasinoVegas.joueur;
 
 /**
  *
@@ -12,6 +12,15 @@ import java.util.Scanner;
  */
 public class Menu {
     
-     public Scanner keyboard = new Scanner(System.in);
-    
+     
+    public Menu ()
+    {
+        System.out.println("Bienvenue dans le Casino !!!");
+        
+        System.out.println(" \nLe jeu commencera lorsque vous aurez choisi les réglages");
+        
+        joueur.réglageJoueur();
+        
+        
+    }
 }
