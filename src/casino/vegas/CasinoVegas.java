@@ -5,7 +5,7 @@
 package casino.vegas;
 
 import casino.vegas.Démineur;
-//import casino.vegas.JeuDes;
+import casino.vegas.JeuDes;
 import static casino.vegas.CasinoVegas.joueur;
 
 /**
@@ -37,10 +37,10 @@ public class CasinoVegas {
     public static casino.vegas.Chambre chambre = new casino.vegas.Chambre();
     public static casino.vegas.Bar bar = new casino.vegas.Bar();
     
-    public static Démineur demineur = new Démineur();
+    public static casino.vegas.Démineur demineur = new casino.vegas.Démineur();
     public static casino.vegas.Jackpot jackpot = new casino.vegas.Jackpot();
     public static casino.vegas.Roulette roulette = new casino.vegas.Roulette ();
-    //public static JeuDes jeuDes = new JeuDes();
+    public static JeuDes jeuDes = new JeuDes();
     
     /**
      * @param args the command line arguments

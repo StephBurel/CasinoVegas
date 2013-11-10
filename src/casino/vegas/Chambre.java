@@ -29,7 +29,8 @@ public class Chambre {
     {
         System.out.println("Bienvenue dans l'hôtel\nQue voulez-vous faire?");
         
-        
+         System.out.println("Bienvenue à l'hotel du Casino"
+                + "\nVeuillez choisir la chambre désirée");
         
     }
     

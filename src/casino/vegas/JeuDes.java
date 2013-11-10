@@ -10,6 +10,9 @@ package casino.vegas;
  */
 public class JeuDes extends Jeux {
     
-    
+    public void commencer ()
+    {
+        
+    }
     
 }
