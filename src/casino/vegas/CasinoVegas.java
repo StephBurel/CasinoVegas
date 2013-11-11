@@ -42,6 +42,7 @@ public class CasinoVegas {
     public static casino.vegas.Roulette roulette = new casino.vegas.Roulette ();
     public static JeuDes jeuDes = new JeuDes();
     
+    public static Démineur demin = new Démineur();
     /**
      * @param args the command line arguments
      */
@@ -52,8 +53,9 @@ public class CasinoVegas {
         
         //while (joueur.etatPsycho >0 && joueur.soldeDuCompte >0 && joueur.tauxAlcoolémie<100)
         //{
-            joueur.faireActivité();
+            //joueur.faireActivité();
             //joueur.seCacher();
+        demin.jouer();
         //}
       
     }

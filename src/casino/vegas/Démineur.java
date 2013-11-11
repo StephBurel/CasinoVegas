@@ -30,6 +30,49 @@ public class Démineur extends Jeux {
     public void jouer ()
     {
         
+        char tb[][]= null ;
+        char demin[][] = null;
+        int x = 0;
+
+       // initialiser (tb);
+        placerLesBombes (tb);
+        affichage (tb);
+
+        connaitreNbBombesAlentours (tb);
+        affichage (tb);
+
+        ajouterLesEtoiles (demin);
+        affichage (demin);
+
+
+        System.out.println ("les lignes et les colonnes vont de 1 à 10 \n");
+
+
+        do
+        {
+            choixDuJoueur ();
+
+            demin[this.ligne][this.colonne] = tb [this.ligne][this.colonne];
+
+            if (tb[this.ligne][this.colonne]=='b')
+            {
+                System.out.println ("Vous avez perdu");
+
+            }
+            else
+            {
+                affichage (demin);
+                x=fin(demin);
+                if(x==10)
+                {
+                    System.out.println("vous avez gagné!!!!");
+                }
+
+            }
+        }
+        while (tb[this.ligne][this.colonne]!='b'&& x>10);
+
+        
     }
     
     
@@ -105,9 +148,70 @@ public class Démineur extends Jeux {
     // savoir combien il y a de bombes aux alentours d'une case
     public void connaitreNbBombesAlentours (char matrice[][])
     {
+        int a=0;
         
+        for (int l=1; l<11; l++)                                                         
+        {
+            for (int c=1 ; c<11 ; c++)                                                    // selection de la case
+            {    
+                if (matrice[l][c]!='b')
+                {
+                    a=0;                                                                 // test autour de la case
+                    for (int i=c-1; i<c+2 ; i++)
+                    {
+                        if (matrice[l-1][i]=='b')
+                            a=a+1;
+                        if (matrice[l+1][i]== 'b')
+                            a=a+1;          
+                    }
+                    if (matrice[l][c-1] == 'b')
+                        a=a+1;
+                    if(matrice[l][c+1] == 'b')
+                        a=a+1;
+
+                    // une fois avoir comptabilisé, on entre la valeur dans la case
+                    if (a==1)
+                        matrice[l][c]= '1';
+                    if (a==2)
+                        matrice[l][c]= '2';
+                    if (a==3)
+                        matrice[l][c]= '3';
+                    if (a==4)
+                        matrice[l][c]= '4';
+                    if (a==5)
+                        matrice[l][c]= '5';
+                    if (a==6)
+                        matrice[l][c]= '6';
+                    if (a==7)
+                        matrice[l][c]= '7';
+                    if (a==8)
+                        matrice[l][c]= '8';
+
+                }
+            }
+        } 
     }
     
+    
+    
+    
+    int fin (char matrice[][])
+    {
+        int c,l,z;
+        z=0;
+        for (l=1 ; l<11 ; l++)
+        {
+            for (c=1; c<11; c++)
+            {
+                if(matrice[l][c]=='*')
+                {
+                z=z+1; 
+                }  
+                 }
+
+        }
+        return(z);
+    }
     
     
 }

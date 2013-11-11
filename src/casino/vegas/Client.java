@@ -13,7 +13,7 @@ import java.util.Random;
 import static casino.vegas.CasinoVegas.jeu;
 import static casino.vegas.CasinoVegas.bar;
 import static casino.vegas.CasinoVegas.chambre;
-
+import static casino.vegas.CasinoVegas.joueur;
 /**
  *
  * @author isen
@@ -112,7 +112,7 @@ public class Client extends Personnage {
                     test = true;
                     break;
                 case "2" :
-                    bar.demarrer();
+                    bar.demarrer(joueur);
                     test=true;
                     break;
                 case "3" :
