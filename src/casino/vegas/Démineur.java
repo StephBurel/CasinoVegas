@@ -30,11 +30,11 @@ public class Démineur extends Jeux {
     public void jouer ()
     {
         
-        char tb[][]= null ;
-        char demin[][] = null;
+        char[][] tb = new char[12][12] ;
+        char[][] demin = new char[12][12];
         int x = 0;
 
-       // initialiser (tb);
+        initialiser (tb);
         placerLesBombes (tb);
         affichage (tb);
 
@@ -76,7 +76,7 @@ public class Démineur extends Jeux {
     }
     
     
-    public void affichage(char matrice [][])
+    public void affichage(char[][] matrice)
     {
         for (int i=1 ; i<11; i++)
         {
@@ -89,7 +89,7 @@ public class Démineur extends Jeux {
         System.out.print("\n");
     }
     
-    public void initialiser(char matrice [][])
+    public void initialiser(char[][] matrice)
     {
         for (int i=0 ; i<12; i++)
         {
