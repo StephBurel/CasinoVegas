@@ -8,6 +8,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import static casino.vegas.CasinoVegas.joueur;
+import static casino.vegas.CasinoVegas.croupier;
 /**
  *
  * @author isen
@@ -63,6 +64,8 @@ public class Jackpot extends Jeux {
                 joueur.dépendanceJeu -=3;
                 joueur.etatPsycho --;
             }
+            
+            croupier.testerJoueur();
         }
         if (joueur.soldeDuCompte<2)
         {

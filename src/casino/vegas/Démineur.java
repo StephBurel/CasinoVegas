@@ -8,6 +8,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import static casino.vegas.CasinoVegas.joueur;
+import static casino.vegas.CasinoVegas.croupier;
 
 /**
  *
@@ -66,6 +67,8 @@ public class Démineur extends Jeux {
                 joueur.etatPsycho --;
                 joueur.dépendanceJeu -= 2;
             }
+            
+            croupier.testerJoueur();
         }
     }
     
