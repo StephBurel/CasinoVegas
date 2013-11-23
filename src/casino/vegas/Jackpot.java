@@ -15,13 +15,15 @@ import static casino.vegas.CasinoVegas.croupier;
  */
 public class Jackpot extends Jeux {
     
-    int prixPartie = 2, nombreLance = 0, gainEnJeu = 0;
+    public static int PRIXPARTIE = 2;
+    int  nombreLance = 0, gainEnJeu = 0;
     boolean rejouer = true;
     Scanner keyboard = new Scanner (System.in);
     String reponseJoueur;
     
     public void commencer ()
     {
+        joueur.soldeDuCompte -= PRIXPARTIE;
         this.gainEnJeu = (int) (Math.random()*300) +50;
         System.out.println("Bienvenue dans le jeu du jackpot"
                 + "\nCe jeu vous coûte 2€"
@@ -36,7 +38,6 @@ public class Jackpot extends Jeux {
             if (this.reponseJoueur.equalsIgnoreCase("o"))
             {
                 this.rejouer = true;
-                joueur.soldeDuCompte -= 2;
                 this.gainEnJeu += 2;
                 this.nombreLance ++;
                 joueur.motivation +=2;
@@ -46,7 +47,19 @@ public class Jackpot extends Jeux {
                 this.rejouer = false;
             }
             
-            // si on joue trop, notre état empire
+            etatJoueur();
+           
+        }
+        if (joueur.soldeDuCompte<PRIXPARTIE)
+        {
+            System.out.println("Vous ne possédez plus assez d'argent...");
+        }
+    }
+    
+    
+    public void etatJoueur()
+    {
+         // si on joue trop, notre état empire
             if (this.nombreLance == 7)
             {
                 System.out.println("Vous commencez à devenir accro à ce jeu, Attention !");
@@ -66,11 +79,6 @@ public class Jackpot extends Jeux {
             }
             
             croupier.testerJoueur();
-        }
-        if (joueur.soldeDuCompte<2)
-        {
-            System.out.println("Vous ne possédez plus assez d'argent...");
-        }
     }
     
     public void lancer()
