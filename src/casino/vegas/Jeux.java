@@ -15,13 +15,11 @@ import java.util.Scanner;
  *
  * @author isen
  */
-public class Jeux {
+public abstract class Jeux {
     Scanner keyboard = new Scanner(System.in);
     
-    public void commencer ()
-    {
-        // méthode vide à implémenter dans chaque jeu
-    }
+    public abstract void commencer ();
+    
     
     public void demarrer(){
         
@@ -32,10 +30,14 @@ public class Jeux {
         {
             System.out.println ("Vous êtes trop jeune pour jouer aux jeux de casino, vous pouvez uniquement jouer au démineur"
                     + "\nVoulez-vous y jouer ? Dites oui pour y jouer");
-            choixJeu = this.keyboard.nextLine();
-            if (choixJeu.equals("oui"))
+            choixJeu = keyboard.nextLine();
+            if (choixJeu == "oui")
             {
                 demineur.commencer();
+            }
+            else
+            {
+                System.out.println("A bientot dans le casino");
             }
         }
         else

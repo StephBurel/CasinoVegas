@@ -33,7 +33,7 @@ public class CasinoVegas {
     
     
     // lancement des actions
-    public static casino.vegas.Jeux jeu = new casino.vegas.Jeux();
+    public static casino.vegas.Jeux jeu;// = new casino.vegas.Jeux();
     public static casino.vegas.Chambre chambre = new casino.vegas.Chambre();
     public static casino.vegas.Bar bar = new casino.vegas.Bar();
     
@@ -55,7 +55,7 @@ public class CasinoVegas {
         //{
             //joueur.faireActivité();
             //joueur.seCacher();
-        demin.jouer();
+      
         //}
       
     }

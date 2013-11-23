@@ -15,7 +15,9 @@ import java.util.Scanner;
 public class Démineur extends Jeux {
     
     Scanner keyboard = new Scanner(System.in);
-    int ligne, colonne;
+    int ligne, colonne, nbRejoue = 0;
+    boolean rejouer = true;
+    String reponseJoueur;
     
     
     public void commencer ()
@@ -24,7 +26,34 @@ public class Démineur extends Jeux {
                 + "\n Le but du jeu est de ne pas tomber sur les bombes "
                 + "\n Vous disposé d'une grille de 10 par 10"
                 + "\n\n A vous de jouer et surtout bonne chance !");
-        jouer();
+        while (rejouer)
+        {
+            jouer();
+            System.out.println("\nVoullez-vous rejouer ?"
+                    + "\nSi oui tapez oui");
+            this.reponseJoueur = keyboard.nextLine();
+                    
+            if (this.reponseJoueur.equalsIgnoreCase("oui"))
+            {
+                this.rejouer = true;
+                this.nbRejoue ++;
+            }
+            else
+            {
+                this.rejouer = false;
+                System.out.println("A bientot dans le démineur !");
+            }
+            
+            if(this.nbRejoue == 5)
+            {
+                System.out.println("Vous devenez accro, faites attention !");
+            }
+            else if (this.nbRejoue > 5)
+            {
+                System.out.println("Vous êtes accro, arrêtez-vous au plus vite !!! "
+                        + "\nDans le cas contraire nous serons dans l'obligation de vous faire consulter un psy");
+            }
+        }
     }
     
     public void jouer ()
