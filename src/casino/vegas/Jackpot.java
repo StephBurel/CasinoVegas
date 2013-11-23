@@ -38,20 +38,30 @@ public class Jackpot extends Jeux {
                 joueur.soldeDuCompte -= 2;
                 this.gainEnJeu += 2;
                 this.nombreLance ++;
+                joueur.motivation +=2;
             }
             else
             {
                 this.rejouer = false;
             }
             
-            if (this.nombreLance == 5)
+            // si on joue trop, notre état empire
+            if (this.nombreLance == 7)
             {
                 System.out.println("Vous commencez à devenir accro à ce jeu, Attention !");
             }
-            else if (this.nombreLance > 5)
+            else if (this.nombreLance > 7 && this.nombreLance<13)
             {
                 System.out.println("Vous êtes accro, tentez de vous arréter au plus vite !!!");
                 joueur.dépendanceJeu --;
+            }
+            else if(this.nombreLance >= 13)
+            {
+                System.out.println("Votre état devient réellement critique !"
+                        + "\nVous devez ralentir la cadence ! "
+                        + "\nVous perdez beaucoup d'argent et devenait dangereusement accro");
+                joueur.dépendanceJeu -=3;
+                joueur.etatPsycho --;
             }
         }
         if (joueur.soldeDuCompte<2)

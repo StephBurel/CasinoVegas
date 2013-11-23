@@ -55,16 +55,59 @@ public class Employé extends Personnage {
         }
      }
      
-     
+     public void testerJoueur ()
+     {
+         if(joueur.dépendanceJeu > 80)
+         {
+             System.out.println("Votre dépendance au jeu devient trop élevé,"
+                     + "\nje suis dans l'obligation de faire appel à un psychologue");
+             appelerLePsy();
+         }
+         if(joueur.tauxAlcoolémie > 90)
+         {
+             System.out.println("Votre état d'ébriété est préoccupant,"
+                     + "j'appelle la sécurité");
+             appelerLaSécurité();
+         }
+         if(joueur.etatPsycho == 2)
+         {
+             System.out.println("Vous êtes dépressif, nous vous conseillons d'aller aux alcoolique anonyme");
+         }
+         if(joueur.soldeDuCompte <=0)
+         {
+             System.out.println("Vous n'avez plus d'argent !"
+                     + "\nJe dois appeler la sécurité");
+             appelerLaSécurité();
+         }
+     }
      
      public void appelerLaSécurité ()
      {
-         System.out.println("Je dois appeler la sécurité");
          if (joueur.soldeDuCompte<0)
          {
              System.out.println("Sécurité : Bonjour, je suis dans l'obligation de vous faire sortir du casino car vous êtes en déficit, vous avez une dette envers nous !"
                      + "\n\n       GAME OVER !!!");
              System.exit(0);
+         }
+         if (joueur.tauxAlcoolémie > 90)
+         {
+             System.out.println("Il faut vous ressaisir !"
+                     + "\nArrêter de boire et suivez moi au poste de sécurité"
+                     + "\nVous resterez ici jusqu'à ce que vous ayez un taux d'alcoolémie décent"
+                     + "\nAsseyez-vous et buvez ce verre d'eau"
+                     + "\n..."
+                     + "\nMaintenant que vous allez mieux, vous devez me payer une amende de 50€ pour état d'ébriété");
+             joueur.tauxAlcoolémie = 40;
+             if (joueur.soldeDuCompte < 50)
+             {
+                 System.out.println("Vous rigolez !!!"
+                         + "\nVous ne possédé même pas 50€ !!"
+                         + "\nSortez d'ici immédiatement et que je ne vous revoie plus ici !!"
+                         + "\n\n        GAME OVER !!!!");
+                 System.exit(0);
+             }
+             else
+                 joueur.soldeDuCompte -= 50;
          }
      }
      

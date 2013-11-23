@@ -7,6 +7,7 @@ package casino.vegas;
 import java.util.Random;
 import java.util.Scanner;
 
+import static casino.vegas.CasinoVegas.joueur;
 
 /**
  *
@@ -37,6 +38,7 @@ public class Démineur extends Jeux {
             {
                 this.rejouer = true;
                 this.nbRejoue ++;
+                joueur.motivation ++;
             }
             else
             {
@@ -44,14 +46,25 @@ public class Démineur extends Jeux {
                 System.out.println("A bientot dans le démineur !");
             }
             
+            // a force de jouer cela atteint le joueur du côté dépendance et psychologique
             if(this.nbRejoue == 5)
             {
                 System.out.println("Vous devenez accro, faites attention !");
             }
-            else if (this.nbRejoue > 5)
+            else if (this.nbRejoue > 5 && this.nbRejoue<10)
             {
                 System.out.println("Vous êtes accro, arrêtez-vous au plus vite !!! "
                         + "\nDans le cas contraire nous serons dans l'obligation de vous faire consulter un psy");
+                joueur.dépendanceJeu--;
+            }
+            else if (this.nbRejoue >= 10)
+            {
+                System.out.println("Vous commencez vraiment à beaucoup trop jouer"
+                        + "\nVotre dépendance au jeu augmente fortement !"
+                        + "\nVotre état psycholique empire"
+                        + "\nNous n'hesiterons pas à contacter un psychologue si vous continué comme ça !");
+                joueur.etatPsycho --;
+                joueur.dépendanceJeu -= 2;
             }
         }
     }

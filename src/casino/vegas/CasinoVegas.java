@@ -30,7 +30,11 @@ public class CasinoVegas {
     public static casino.vegas.Client clientFictif6 = new casino.vegas.Client("Fer", "Lucie", 19, 300, 4, 64, 10, 40);
     
     // ajout des employés fictifs
-    
+    public static casino.vegas.Employé caissier = new casino.vegas.Employé("Monier", "Charles", 26,  5,200, 1 );
+    public static casino.vegas.Employé securite = new casino.vegas.Employé("Rusder", "Thomas", 28,  2 ,100, 2 );
+    public static casino.vegas.Employé croupier = new casino.vegas.Employé("Durez", "Victor", 30,  5, 400, 3 );
+    public static casino.vegas.Employé psy = new casino.vegas.Employé("Morin", "Stanislas", 40,  6, 1000, 4 );
+    public static casino.vegas.Employé barman = new casino.vegas.Employé("Monier", "Charles", 23,  6,200, 5 );
     
     // lancement des actions
     public static casino.vegas.Jeux jeu;// = new casino.vegas.Jeux();

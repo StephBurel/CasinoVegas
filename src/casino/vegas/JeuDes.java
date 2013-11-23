@@ -4,6 +4,8 @@
  */
 package casino.vegas;
 
+import static casino.vegas.CasinoVegas.joueur;
+
 /**
  *
  * @author isen
