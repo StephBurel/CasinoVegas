@@ -13,8 +13,7 @@ import static casino.vegas.ChambreLuxe.prendreNourriture;
 public class ChambreStandard extends Chambre {
 
     /**
-     * Cette méthode est celle qui se lance lorsqu'on prend un chambre
-     * Familliale
+     * Cette méthode est celle qui se lance lorsqu'on prend une chambre standard
      *
      * @param joueur est le personnage joué
      * @return la dette que doit le joueur à la fin
@@ -49,7 +48,8 @@ public class ChambreStandard extends Chambre {
                 case 2:
                     tempDette += RoomService(joueur);
                     break;
-                default: quit = false;
+                default:
+                    quit = false;
 
             }
         } while (quit);
@@ -67,6 +67,10 @@ public class ChambreStandard extends Chambre {
             joueur.tauxAlcoolémie = 0;
         }
         joueur.etatPsycho++;
+        if (joueur.etatPsycho > 6) {
+            joueur.etatPsycho = 6;
+        }
+
         joueur.definirEtatPsycho(joueur.etatPsycho);
     }
 
@@ -138,7 +142,6 @@ public class ChambreStandard extends Chambre {
      * @param joueur est le personnage joué
      * @return la somme des boissons qu'a pris le joueur
      */
-    
     protected static int prendreBoisson(Client joueur) {
 
         return Bar.PrendreUneConso(joueur);

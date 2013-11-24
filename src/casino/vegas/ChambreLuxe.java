@@ -18,8 +18,7 @@ public class ChambreLuxe extends Chambre {
     }
 
     /**
-     * Cette méthode est celle qui se lance lorsqu'on prend un chambre
-     * Familliale
+     * Cette méthode est celle qui se lance lorsqu'on prend une chambre de luxe
      *
      * @param joueur est le personnage joué
      * @return la dette du joueur a la fin de son passage
@@ -73,7 +72,7 @@ public class ChambreLuxe extends Chambre {
      */
     public static void dormir(Client joueur) {
         joueur.tauxAlcoolémie = 0;
-        joueur.etatPsycho += 2;
+        joueur.etatPsycho += 1;
         if (joueur.etatPsycho > 6) {
             joueur.etatPsycho = 6;
             joueur.definirEtatPsycho(joueur.etatPsycho);

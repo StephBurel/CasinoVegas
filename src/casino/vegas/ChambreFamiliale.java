@@ -12,9 +12,9 @@ import static casino.vegas.ChambreLuxe.prendreNourriture;
  */
 public class ChambreFamiliale extends Chambre {
 
-    
     /**
-     * Cette méthode est celle qui se lance lorsqu'on prend un chambre Familliale
+     * Cette méthode est celle qui se lance lorsqu'on prend une chambre Familliale
+     *
      * @param joueur est le personnage joué
      * @return la dette que devra le joueur à la fin de son passage
      */
@@ -23,41 +23,43 @@ public class ChambreFamiliale extends Chambre {
         int choiceInt = -1;
         boolean wrong = true;
         boolean quit = true;
-        do{
-        System.out.println("Que voulez vous faire?"
-                + "\n pour dormir tapez 1"
-                + "\n pour appeler le room service tapez 2"
-                + "\n pour partir tapez 3");
-
         do {
-            String choice = keyboard.nextLine();
-            try {
-                choiceInt = Integer.parseInt(choice);
-                if (choiceInt != 1 && choiceInt != 2 && choiceInt != 3) {
-                    throw new Exception("not 1, 2 or 3");
-                }
-                wrong = false;
-            } catch (Exception e) {
-                System.out.println("Mauvaise valeur insérée");
-            }
-        } while (wrong);
-        switch (choiceInt) {
-            case 1:
-                dormir(joueur);
-                break;
-            case 2:
-                tempDette += RoomService(joueur);
-                break;
-            default: quit = false;
-                break;
+            System.out.println("Que voulez vous faire?"
+                    + "\n pour dormir tapez 1"
+                    + "\n pour appeler le room service tapez 2"
+                    + "\n pour partir tapez 3");
 
-        }
-        }while(quit);
+            do {
+                String choice = keyboard.nextLine();
+                try {
+                    choiceInt = Integer.parseInt(choice);
+                    if (choiceInt != 1 && choiceInt != 2 && choiceInt != 3) {
+                        throw new Exception("not 1, 2 or 3");
+                    }
+                    wrong = false;
+                } catch (Exception e) {
+                    System.out.println("Mauvaise valeur insérée");
+                }
+            } while (wrong);
+            switch (choiceInt) {
+                case 1:
+                    dormir(joueur);
+                    break;
+                case 2:
+                    tempDette += RoomService(joueur);
+                    break;
+                default:
+                    quit = false;
+                    break;
+
+            }
+        } while (quit);
         return tempDette;
     }
 
     /**
      * Permet au joueur de se reposer et de faire baisser le taux d'alcoolémie
+     *
      * @param joueur
      */
     public static void dormir(Client joueur) {
@@ -111,6 +113,7 @@ public class ChambreFamiliale extends Chambre {
 
     /**
      * Vous permet de vous nourrir et de faire baisser le taux d'alcoolemie
+     *
      * @param joueur est le personnage joué
      */
     protected static void prendreNourriture(Client joueur) {
@@ -127,12 +130,13 @@ public class ChambreFamiliale extends Chambre {
 
     /**
      * Cette méthode vous permet de prendre une boisson
+     *
      * @param joueur
      * @return la dette que vous devrez payer
      */
     protected static int prendreBoisson(Client joueur) {
 
         return Bar.PrendreUneConso(joueur);
-        
+
     }
 }
