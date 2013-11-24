@@ -18,7 +18,7 @@ import static casino.vegas.CasinoVegas.joueur;
  *
  * @author isen
  */
-public class Client extends Personnage {
+public class Client extends Personnage implements Braqueur{
     
     Scanner keyboard = new Scanner(System.in);
     String ageString;
@@ -182,7 +182,7 @@ public class Client extends Personnage {
         {
             System.out.println("Vous avez survécu !! Félicitation vous avez sauvez votre vie et vous avez protégé notre cher casino ! "
                     + "\nVeuillez accepter ces 1000 euros en guise de remerciement");
-            this.soldeDuCompte += 1000;
+            joueur.soldeDuCompte += 1000;
         }
         else
         {
@@ -193,6 +193,59 @@ public class Client extends Personnage {
         }
     }
     
+    
+    public void choixActionBraquage()
+    {
+        int choix = 0;
+        boolean recommencer = true;
+        System.out.println("Que voullez-vous faire ?"
+                + "\nVous avez le choix entre vous cacher (tapez 1) ou vous interposer (tapez 2)");
+        
+         do{
+        
+            try{
+                choix = keyboard.nextInt(); 
+                if(choix != 1 && choix!= 2 ){
+                    throw new Exception("Ni 1 ni 2");
+                }
+                else{
+                recommencer = false;
+                }
+            }
+            catch(Exception e){
+                System.out.println("veuillez entrer 1, 2 ou 3");
+                keyboard.next();
+            }
+        }while(recommencer);
+         
+         switch (choix)
+         {
+             case 1 :
+                 joueur.seCacher();
+                 break;
+             case 2 :
+                 joueur.interposerDansBraquage();
+                 break;
+         }
+        
+    }
+    
+    
+    
+// interface du braqueur
+    
+    public void entrerDansLeCasino()
+    {
+        System.out.println("\n\n\n\n\n\n"
+                + "Un nouveau personnage entre dans le casino, il vous semble suspect"
+                + "\nVous continuez à jouer tout en gardant un oeil sur lui");
+    }
+         
+    public void cambrioler()
+    {
+        System.out.println("Vous entendez un coup de feu");
+        joueur.choixActionBraquage();
+    }
     
     
 }

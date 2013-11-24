@@ -10,4 +10,6 @@ package casino.vegas;
  */
 public interface Braqueur {
     
+    public void entrerDansLeCasino();
+    public void cambrioler();
 }

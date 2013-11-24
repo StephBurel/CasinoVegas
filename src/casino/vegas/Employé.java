@@ -12,7 +12,7 @@ import static casino.vegas.CasinoVegas.joueur;
  *
  * @author isen
  */
-public class Employé extends Personnage {
+public class Employé extends Personnage implements Braqueur{
     
      enum posteEnum { Caissier, Sécurité , Croupier , Psychologue, Barman}
      String poste;
@@ -175,7 +175,24 @@ public class Employé extends Personnage {
          }
      }
         
-        
+      
+     
+     
+// interface Braqueur
+     
+     public void entrerDansLeCasino()
+     {
+         System.out.println("\n\n\n\n\n\n"
+                 + "Un des employés vous semble suspect"
+                 + "\nIl se comporte bizarement"
+                 + "\nVous gardez un oeil sur lui tout en continuant vos activités");
+     }
+     
+     public void cambrioler()
+    {
+        System.out.println("Vous entendez un coup de feu");
+        joueur.choixActionBraquage();
+    }
      
 }
 
