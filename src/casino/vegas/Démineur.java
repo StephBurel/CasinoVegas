@@ -31,6 +31,7 @@ public class Démineur extends Jeux {
         while (rejouer)
         {
             jouer();
+            etatJoueur();
             System.out.println("\nVoullez-vous rejouer ?"
                     + "\nSi oui tapez oui");
             this.reponseJoueur = keyboard.nextLine();
@@ -47,7 +48,13 @@ public class Démineur extends Jeux {
                 System.out.println("A bientot dans le démineur !");
             }
             
-            // a force de jouer cela atteint le joueur du côté dépendance et psychologique
+            
+        }
+    }
+    
+    public void etatJoueur()
+    {
+        // a force de jouer cela atteint le joueur du côté dépendance et psychologique
             if(this.nbRejoue == 5)
             {
                 System.out.println("Vous devenez accro, faites attention !");
@@ -69,7 +76,6 @@ public class Démineur extends Jeux {
             }
             
             croupier.testerJoueur();
-        }
     }
     
     public void jouer ()

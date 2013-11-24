@@ -42,6 +42,8 @@ public class JeuDes extends Jeux {
             this.diceBbis = 0;
             this.diceCbis = 0;
             jouer();
+            resultat();
+            etatJoueur();
             System.out.println("Voullez-vous rejouer?"
                     + "\nSi oui tapez 1");
             this.reponseString = keyboard.nextLine();
@@ -56,8 +58,8 @@ public class JeuDes extends Jeux {
                 this.rejouer = false;
             }
             
-            resultat();
-            etatJoueur();
+            
+            
             
             if (joueur.soldeDuCompte< PRIXPARTIE)
             {

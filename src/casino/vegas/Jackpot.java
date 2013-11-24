@@ -32,6 +32,7 @@ public class Jackpot extends Jeux {
         while (rejouer && (joueur.soldeDuCompte>=2))
         {
             lancer();
+            etatJoueur();
             System.out.println("Voullez-vous rejouer ?"
                     + "\nTapez O pour rejouer");
             this.reponseJoueur = keyboard.nextLine();
@@ -47,7 +48,7 @@ public class Jackpot extends Jeux {
                 this.rejouer = false;
             }
             
-            etatJoueur();
+            
            
         }
         if (joueur.soldeDuCompte<PRIXPARTIE)

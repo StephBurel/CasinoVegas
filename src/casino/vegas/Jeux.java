@@ -20,6 +20,8 @@ public abstract class Jeux {
     
     public abstract void commencer ();
     
+    public abstract void etatJoueur();
+    
     
     public static void demarrer(){
         

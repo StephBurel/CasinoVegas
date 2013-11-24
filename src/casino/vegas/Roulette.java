@@ -31,6 +31,7 @@ public class Roulette extends Jeux {
                     + "\n..."
                     + "\nRien ne va plus");
             resultat();
+            etatJoueur();
             
             if(joueur.soldeDuCompte <=20)
             {
@@ -43,7 +44,7 @@ public class Roulette extends Jeux {
                 rejouerOuNon();
             }
             
-            etatJoueur();
+            
         }
     }
     
