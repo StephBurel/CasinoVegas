@@ -59,6 +59,7 @@ public class Bar {
     public void payer(Personnage client) {
 
         client.soldeDuCompte -= dette;
+        dette = 0;
 
     }
 

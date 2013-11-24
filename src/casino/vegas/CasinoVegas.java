@@ -87,6 +87,10 @@ public class CasinoVegas {
             jouer = casino.rejouer();
         }
         
+        
+        // payez vos dette avant de partir
+        bar.payer(joueur);
+        
         // quitter le jeu
         System.out.println("\n\n\nFelicitation vous avez survécue dans le jeu"
                 + "\nMerci d'avoir joué"
