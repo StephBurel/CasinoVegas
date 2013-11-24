@@ -23,6 +23,8 @@ public class Jackpot extends Jeux {
     
     public void commencer ()
     {
+        rejouer = true;
+        etatJoueur();
         joueur.soldeDuCompte -= PRIXPARTIE;
         this.gainEnJeu = (int) (Math.random()*300) +50;
         System.out.println("Bienvenue dans le jeu du jackpot"

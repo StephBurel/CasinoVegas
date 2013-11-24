@@ -27,6 +27,8 @@ public class JeuDes extends Jeux {
     
     public void commencer ()
     {
+        rejouer = true;
+        etatJoueur();
         this.nbJeu = 0;
         System.out.println("\nBienvenue dans le jeu 421 !"
                 + "\nCe jeu vous coute 3€, vous pouvez en gagner 10"

@@ -24,6 +24,8 @@ public class Démineur extends Jeux {
     
     public void commencer ()
     {
+        rejouer = true;
+        etatJoueur();
         System.out.println("\n\n\n    Bienvenue dans le Démineur !"
                 + "\n Le but du jeu est de ne pas tomber sur les bombes "
                 + "\n Vous disposé d'une grille de 10 par 10"

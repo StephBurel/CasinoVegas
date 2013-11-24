@@ -8,6 +8,7 @@ import casino.vegas.Démineur;
 import casino.vegas.JeuDes;
 import static casino.vegas.CasinoVegas.joueur;
 
+import java.util.Random;
 /**
  *
  * @author STEPHAN
@@ -47,21 +48,43 @@ public class CasinoVegas {
     public static JeuDes jeuDes = new JeuDes();
     
     public static Démineur demin = new Démineur();
+    
+    
+    
+    
+    static int arriveBraqueur;
+    static boolean jouer = true;
+    
+    
     /**
      * @param args the command line arguments
      */
+    
+    
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        int compteur = 0;
+        arriveBraqueur = (int) (Math.random()*5) +1;
         
         Menu casino = new Menu();
         
-        //while (joueur.etatPsycho >0 && joueur.soldeDuCompte >0 && joueur.tauxAlcoolémie<100)
-        //{
-            //joueur.faireActivité();
-            //joueur.seCacher();
-      
-        //}
-      
+        while (jouer)
+        {
+            compteur ++;
+            casino.activité();
+            
+            if (compteur == arriveBraqueur)
+            {
+                
+            }
+            
+            jouer = casino.rejouer();
+        }
+        
+        System.out.println("\n\n\nFelicitation vous avez survécue dans le jeu"
+                + "\nMerci d'avoir joué"
+                + "\nA bientôt dans notre jeu !");
+        
     }
         
 }

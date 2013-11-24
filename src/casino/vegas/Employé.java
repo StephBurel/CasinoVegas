@@ -59,23 +59,24 @@ public class Employé extends Personnage implements Braqueur{
      {
          if(joueur.dépendanceJeu > 80)
          {
-             System.out.println("Votre dépendance au jeu devient trop élevé,"
+             System.out.println("\n\n\nVotre dépendance au jeu devient trop élevé,"
                      + "\nje suis dans l'obligation de faire appel à un psychologue");
              appelerLePsy();
          }
          if(joueur.tauxAlcoolémie > 90)
          {
-             System.out.println("Votre état d'ébriété est préoccupant,"
+             System.out.println("\n\n\nVotre état d'ébriété est préoccupant,"
                      + "j'appelle la sécurité");
              appelerLaSécurité();
          }
-         if(joueur.etatPsycho == 2)
+         if(joueur.etatPsycho <= 2)
          {
-             System.out.println("Vous êtes dépressif, nous vous conseillons d'aller aux alcoolique anonyme");
+             System.out.println("\n\n\nVous êtes dépressif, nous vous conseillons d'aller voir le psy");
+             appelerLePsy();
          }
          if(joueur.soldeDuCompte <=0)
          {
-             System.out.println("Vous n'avez plus d'argent !"
+             System.out.println("\n\n\nVous n'avez plus d'argent !"
                      + "\nJe dois appeler la sécurité");
              appelerLaSécurité();
          }
@@ -83,7 +84,7 @@ public class Employé extends Personnage implements Braqueur{
      
      public void appelerLaSécurité ()
      {
-         if (joueur.soldeDuCompte<0)
+         if (joueur.soldeDuCompte<=0)
          {
              System.out.println("Sécurité : Bonjour, je suis dans l'obligation de vous faire sortir du casino car vous êtes en déficit, vous avez une dette envers nous !"
                      + "\n\n       GAME OVER !!!");
@@ -166,6 +167,45 @@ public class Employé extends Personnage implements Braqueur{
                      System.out.println("Houla ! Vous ne savez même plus écrire tellement vous avez la tête dans le jeu !");
                      appelerLaSécurité ();       
              }
+         }
+         else if (joueur.etatPsycho <=2)
+         {
+             int blague  = (int) (Math.random()*4 +1);
+             System.out.println("Psychologue : vous êtes actuellement en dépression voir même suicidaire!"
+                     + "\nIl faut remédier à cela"
+                     + "\nVoici une petite blague pour vous redonner le sourir");
+             switch (blague)
+             {
+                 case 1 :
+                     System.out.println("\n\nSi la tour de Pise penche vers la gauche, c'est qu'il va pleuvoir.\n" +
+                           "Si elle penche vers la droite, c'est que vous arrivez par l'autre côté de la rue !");
+                     break;
+                 case 2 :
+                     System.out.println("\n\nUn mec rentre dans un bar :\n" +
+                            "- Je voudrais une chwirzderkilmaskichtmeurk à la menthe.\n" +
+                            "Et le barman :\n" +
+                            "- Un chwirzderkilmaskichtmeurk à la quoi ?");
+                     break;
+                 case 3 :
+                     System.out.println("\n\nQue fait un crocodile quand il rencontre une superbe femelle ?\n" +
+                            "\n" +
+                            "- Il Lacoste !");
+                     break;
+                 case 4 :
+                     System.out.println("\n\nVous connaissez l'histoire de la chaise ???\n" +
+                            "\n" +
+                            "- Non? C'est dommage elle est pliante...");
+                     break;
+                 case 5:
+                     System.out.println("\n\nDeux patates traversent la route. L'une d'elle se fait écraser. L'autre dit :\n" +
+                        "\"Oh purée !\"");
+                     break;
+             }
+             System.out.println("\n\n\nJ'ai cru vous voir exquisser un sourire, vous allez mieux"
+                     + "\nVous êtes joyeux"
+                     + "\nRetournez jouer mais attention changer de jeu sinon nous nous reverrons très vite !\n\n\n");
+             joueur.etatPsycho = 5;
+             joueur.faireActivité();
          }
          else
          {

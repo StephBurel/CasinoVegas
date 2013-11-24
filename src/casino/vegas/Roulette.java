@@ -20,6 +20,8 @@ public class Roulette extends Jeux {
     
     public void commencer ()
     {
+        rejouer = true;
+        etatJoueur();
         System.out.println("Bienvenue dans le jeux de la roulette");
         règles();
         while(this.rejouer && joueur.soldeDuCompte > 20)
@@ -41,7 +43,7 @@ public class Roulette extends Jeux {
             }
             else
             {
-                rejouerOuNon();
+                rejouerRoulette();
             }
             
             
@@ -73,7 +75,7 @@ public class Roulette extends Jeux {
     }
     
     
-    public void rejouerOuNon()
+    public void rejouerRoulette()
     {
         String rejouerStr;
         System.out.println("\n\nVoullez-vous rejouer ?"

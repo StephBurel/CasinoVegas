@@ -17,6 +17,7 @@ import java.util.Scanner;
  */
 public abstract class Jeux {
     static Scanner keyboard = new Scanner(System.in);
+    static boolean resterDansLeCasino = true;
     
     public abstract void commencer ();
     
@@ -26,56 +27,80 @@ public abstract class Jeux {
     public static void demarrer(){
         
         String choixJeu;
+        resterDansLeCasino = true;
         
         System.out.println("\n\nBienvenue dans le Casino !");
-        if (joueur.age < 21)
+        while (resterDansLeCasino)
         {
-            System.out.println ("Vous êtes trop jeune pour jouer aux jeux de casino, vous pouvez uniquement jouer au démineur"
-                    + "\nVoulez-vous y jouer ? Dites oui pour y jouer");
-            choixJeu = keyboard.nextLine();
-            if (choixJeu == "oui")
+            if (joueur.age < 21)
             {
-                demineur.commencer();
+                System.out.println ("Vous êtes trop jeune pour jouer aux jeux de casino, vous pouvez uniquement jouer au démineur"
+                        + "\nVoulez-vous y jouer ? Dites oui pour y jouer");
+                choixJeu = keyboard.nextLine();
+                if (choixJeu == "oui")
+                {
+                    demineur.commencer();
+                }
+                else
+                {
+                    System.out.println("A bientot dans le casino");
+                }
             }
             else
             {
-                System.out.println("A bientot dans le casino");
+                System.out.println("Veuillez choisir votre jeu parmis les suivants :"
+                        + "\n Pour jouer au 421 tapez 1"
+                        + "\n Pour jouer à la roulette tapez 2"
+                        + "\n Pour jouer au Jackpot tapez 3"
+                        + "\n Pour jouer au démineur tapez 4");
+                boolean recommencer = true;
+                while (recommencer)
+                {
+                    choixJeu = keyboard.nextLine();
+                    switch (choixJeu)
+                    {
+                        case "1" :
+                            jeuDes.commencer();
+                            recommencer = false;
+                            break;
+                        case "2" :
+                            roulette.commencer();
+                            recommencer = false;
+                            break;
+                        case "3" :
+                            recommencer = false;
+                            jackpot.commencer();
+                            break;
+                        case "4" :
+                            recommencer = false;
+                            demineur.commencer();
+                            break;
+                        default :
+                            recommencer = true;
+                            System.out.println("Désolé, la saisie n'est pas valide... Veuillez recommencer");
+                    }
+                }
             }
+            
+            rejouerOuNon();
+        }
+    }
+    
+    
+    public static void rejouerOuNon()
+    {
+        String reponse;
+        System.out.println("\n\nVoullez-vous rester dans le casino et faire d'autres jeu, ou souhaitez-vous en sortir ?"
+                + "\nTapez 1 pour rester (tout autre caractère pour sortir)");
+        reponse = keyboard.nextLine();
+        
+        if (reponse.equals("1"))
+        {
+            resterDansLeCasino = true;
         }
         else
         {
-            System.out.println("Veuillez choisir votre jeu parmis les suivants :"
-                    + "\n Pour jouer au 421 tapez 1"
-                    + "\n Pour jouer à la roulette tapez 2"
-                    + "\n Pour jouer au Jackpot tapez 3"
-                    + "\n Pour jouer au démineur tapez 4");
-            boolean recommencer = true;
-            while (recommencer)
-            {
-                choixJeu = keyboard.nextLine();
-                switch (choixJeu)
-                {
-                    case "1" :
-                        jeuDes.commencer();
-                        recommencer = false;
-                        break;
-                    case "2" :
-                        roulette.commencer();
-                        recommencer = false;
-                        break;
-                    case "3" :
-                        recommencer = false;
-                        jackpot.commencer();
-                        break;
-                    case "4" :
-                        recommencer = false;
-                        demineur.commencer();
-                        break;
-                    default :
-                        recommencer = true;
-                        System.out.println("Désolé, la saisie n'est pas valide... Veuillez recommencer");
-                }
-            }
+            resterDansLeCasino = false;
         }
     }
    
