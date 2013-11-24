@@ -25,6 +25,8 @@ public class ChambreFamiliale extends Chambre {
         int tempDette = 0;
         int choiceInt = -1;
         boolean wrong = true;
+        boolean quit = true;
+        do{
         System.out.println("Que voulez vous faire?"
                 + "\n pour dormir tapez 1"
                 + "\n pour appeler le room service tapez 2"
@@ -49,10 +51,11 @@ public class ChambreFamiliale extends Chambre {
             case 2:
                 tempDette += RoomService(joueur);
                 break;
-            default:
+            default: quit = false;
                 break;
 
         }
+        }while(quit);
         return tempDette;
     }
 
@@ -79,8 +82,8 @@ public class ChambreFamiliale extends Chambre {
         int choiceInt = -1;
         boolean wrong = false;
         System.out.println("Que voulez vous prendre?"
-                + "/n pour de la nourriture tapez 1 (50€)"
-                + "/n pour de la boisson tapez 2");
+                + "\n pour de la nourriture tapez 1 (50€)"
+                + "\n pour de la boisson tapez 2");
         do {
             String choice = keyboard.nextLine();
             try {

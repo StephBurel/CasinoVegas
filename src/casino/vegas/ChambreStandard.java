@@ -14,7 +14,9 @@ import static casino.vegas.ChambreLuxe.prendreNourriture;
 public class ChambreStandard extends Chambre {
 
     /**
-     * Cette méthode est celle qui se lance lorsqu'on prend un chambre Familliale
+     * Cette méthode est celle qui se lance lorsqu'on prend un chambre
+     * Familliale
+     *
      * @param joueur est le personnage joué
      * @return la dette que doit le joueur à la fin
      */
@@ -22,39 +24,42 @@ public class ChambreStandard extends Chambre {
         int tempDette = 0;
         int choiceInt = -1;
         boolean wrong = true;
-        System.out.println("Que voulez vous faire?"
-                + "\n pour dormir tapez 1"
-                + "\n pour appeler le room service tapez 2"
-                + "\n pour partir tapez 3");
-
+        boolean quit = true;
         do {
-            String choice = keyboard.nextLine();
-            try {
-                choiceInt = Integer.parseInt(choice);
-                if (choiceInt != 1 && choiceInt != 2 && choiceInt != 3) {
-                    throw new Exception("not 1, 2 or 3");
-                }
-                wrong = false;
-            } catch (Exception e) {
-                System.out.println("Mauvaise valeur insérée");
-            }
-        } while (wrong);
-        switch (choiceInt) {
-            case 1:
-                dormir(joueur);
-                break;
-            case 2:
-                tempDette += RoomService(joueur);
-                break;
-            default:
-                break;
+            System.out.println("Que voulez vous faire?"
+                    + "\n pour dormir tapez 1"
+                    + "\n pour appeler le room service tapez 2"
+                    + "\n pour partir tapez 3");
 
-        }
+            do {
+                String choice = keyboard.nextLine();
+                try {
+                    choiceInt = Integer.parseInt(choice);
+                    if (choiceInt != 1 && choiceInt != 2 && choiceInt != 3) {
+                        throw new Exception("not 1, 2 or 3");
+                    }
+                    wrong = false;
+                } catch (Exception e) {
+                    System.out.println("Mauvaise valeur insérée");
+                }
+            } while (wrong);
+            switch (choiceInt) {
+                case 1:
+                    dormir(joueur);
+                    break;
+                case 2:
+                    tempDette += RoomService(joueur);
+                    break;
+                default: quit = false;
+
+            }
+        } while (quit);
         return tempDette;
     }
 
     /**
      * Permet au joueur de se reposer et de faire baisser le taux d'alcoolémie
+     *
      * @param joueur est le personnage joué
      */
     public static void dormir(Client joueur) {
@@ -67,7 +72,9 @@ public class ChambreStandard extends Chambre {
     }
 
     /**
-     * Cette méthode permet d'appeler le room service donc soit de prendre une boisson soit de la nourriture
+     * Cette méthode permet d'appeler le room service donc soit de prendre une
+     * boisson soit de la nourriture
+     *
      * @param joueur est le personnage joué
      * @return la dette que doit le joueur à la fin
      */
@@ -77,8 +84,8 @@ public class ChambreStandard extends Chambre {
         int choiceInt = -1;
         boolean wrong = false;
         System.out.println("Que voulez vous prendre?"
-                + "/n pour de la nourriture tapez 1 (20€)"
-                + "/n pour de la boisson tapez 2");
+                + "\n pour de la nourriture tapez 1 (20€)"
+                + "\n pour de la boisson tapez 2");
         do {
             String choice = keyboard.nextLine();
             try {
@@ -99,7 +106,6 @@ public class ChambreStandard extends Chambre {
                 break;
             case 2:
                 tempDette += prendreBoisson(joueur);
-
                 break;
 
         }
@@ -112,6 +118,7 @@ public class ChambreStandard extends Chambre {
 
     /**
      * Cette méthode permet de prendre de la nourriture
+     *
      * @param joueur est le personnage joué
      */
     protected static void prendreNourriture(Client joueur) {
@@ -128,6 +135,7 @@ public class ChambreStandard extends Chambre {
 
     /**
      * Cette méthode permet de prendre des boissons
+     *
      * @param joueur
      * @return la somme des boissons qu'a pris le joueur
      */
