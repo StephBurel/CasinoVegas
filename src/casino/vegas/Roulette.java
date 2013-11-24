@@ -141,7 +141,7 @@ public class Roulette extends Jeux {
      */
     public void lancéDuCroupier()
     {
-        this.nombreSorti = (int) (Math.random()*36);
+        this.nombreSorti = (int) (Math.random()*37);
     }
     
     

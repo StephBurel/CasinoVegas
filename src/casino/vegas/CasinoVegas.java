@@ -69,6 +69,8 @@ public class CasinoVegas {
         int compteur = 0;
         arriveBraqueur = (int) (Math.random()*5) +1;
         
+        int braqueurClientOuEmployé = (int) (Math.random()*2);
+        
         // lancement du jeu
         Menu casino = new Menu();
         
@@ -81,6 +83,18 @@ public class CasinoVegas {
             //générer une arrivée aléatoire du Braqueur
             if (compteur == arriveBraqueur)
             {
+                if (braqueurClientOuEmployé == 0)
+                {
+                    clientFictif1.entrerDansLeCasino();
+                    clientFictif1.cambrioler();
+                    joueur.choixActionBraquage();
+                }
+                else
+                {
+                    barman.entrerDansLeCasino();
+                    barman.cambrioler();
+                    joueur.choixActionBraquage();
+                }
                 
             }
             
