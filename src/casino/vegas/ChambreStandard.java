@@ -8,8 +8,7 @@ import static casino.vegas.Chambre.keyboard;
 import static casino.vegas.ChambreLuxe.prendreNourriture;
 
 /**
- *
- * @author isen
+ * Cette classe hérite de chambre et permet de prendre une chambre standard
  */
 public class ChambreStandard extends Chambre {
 
@@ -136,9 +135,10 @@ public class ChambreStandard extends Chambre {
     /**
      * Cette méthode permet de prendre des boissons
      *
-     * @param joueur
+     * @param joueur est le personnage joué
      * @return la somme des boissons qu'a pris le joueur
      */
+    
     protected static int prendreBoisson(Client joueur) {
 
         return Bar.PrendreUneConso(joueur);

@@ -4,10 +4,12 @@
  */
 package casino.vegas;
 
+import static casino.vegas.CasinoVegas.croupier;
 import java.util.Scanner;
 
 /**
- * @author isen
+ * Cette classe permet d'accéder au bar et de se détendre
+ * 
  */
 public class Bar {
 
@@ -17,6 +19,7 @@ public class Bar {
      */
     public int dette = 0;
     public Client client = new Client();
+    private boolean paid = false;
 
     /**
      * Cette méthode est la méthode lancée au démarrage du bar
@@ -32,22 +35,26 @@ public class Bar {
         boolean continuer = true;
         String choice;
         char quit = 'N';
+        System.out.println("Bienvenue dans le bar");
+        System.out.println("Votre solde est de " + perso.soldeDuCompte);
         do {
-            System.out.println("Bienvenue dans le bar");
-            System.out.println("\n Que voulez vous faire?"
+            
+            System.out.println("Votre dette actuelle  est de " + this.dette);
+            System.out.println(" Que voulez vous faire?"
                     + "\n pour prendre une consommation tapez 1"
                     + "\n pour draguer tapez 2"
-                    + "\n pour payer tapez 3");
+                    + "\n pour payer tapez 3"
+                    + "\n pour quitter le bar taper 4");
             do {
                 choice = keyboard.nextLine();
                 try {
                     choiceInt = Integer.parseInt(choice);
-                    if (choiceInt != 1 && choiceInt != 2 && choiceInt != 3) {
-                        throw new Exception("not 1, 2 or 3");
+                    if (choiceInt != 1 && choiceInt != 2 && choiceInt != 3 && choiceInt != 4) {
+                        throw new Exception("not 1, 2 or 3 or 4");
                     }
                     wrong = false;
                 } catch (Exception e) {
-                    System.out.println("veuillez entrer 1, 2 ou 3");
+                    System.out.println("veuillez entrer 1, 2 ou 3 ou 4");
                     keyboard.next();
                 }
             } while (wrong);
@@ -57,30 +64,21 @@ public class Bar {
                     this.dette -= this.PrendreUneConso(client);
                     break;
                 case 2:
-                    this.draguer(client);
+                    this.dette = this.draguer(client,this.dette);
                     break;
                 case 3:
                     this.payer(client);
+                    croupier.testerJoueur();
                     break;
                 default:
+                    if (paid) {
+                        continuer = false;
+                    } else {
+                        System.out.println("\nVous ne pouvez partir sans avoir payer");
+                    }
                     break;
             }
-            System.out.println("Voulez vous partir? Y/N");
-            do {
-                try {
-                    String quitStr = keyboard.nextLine();
-                    quit = quitStr.charAt(0);
-                    if (quit != 'Y' && quit != 'N') {
-                        throw new Exception("not Y or N");
-                    } else if (quit == 'Y') {
-                        continuer = false;
-                    }
-                    wrong = false;
-                } catch (Exception e) {
-                    System.out.println("Veuillez entre Y ou N");
-                    keyboard.next();
-                }
-            } while (wrong);
+
             wrong = true;
         } while (continuer);
 
@@ -94,8 +92,14 @@ public class Bar {
      */
     public void payer(Personnage client) {
 
+        System.out.println("vous devez payer " + this.dette);
         client.soldeDuCompte -= dette;
         dette = 0;
+        paid = true;
+        System.out.println("Votre solde est de " + client.soldeDuCompte + "€");
+        if(client.soldeDuCompte <0 ){
+            croupier.appelerLaSécurité();
+        }
 
     }
 
@@ -121,28 +125,30 @@ public class Bar {
      */
     public static int PrendreUneConso(Client joueur) {
 
-        int choice = -1;
+        String choix;
+        int choixInt = -1;
         boolean wrong = true;
         Bar.boisson drink;
         System.out.println("Quelle boisson voulez vous choisir?"
-                + "\n pour une biere tapez 1"
-                + "\n pour une eau tapez 2"
-                + "\n pour une limonade tapez 3");
+                + "\n pour une biere tapez 1 " + boisson.Biere.prix + "€"
+                + "\n pour une eau tapez 2 " + boisson.eau.prix + "€"
+                + "\n pour une limonade tapez 3" + boisson.limonade.prix + "€"
+                + "\n pour un whisky tapez 4 " + boisson.whisky.prix + "€");
 
         do {
-
+        choix = keyboard.nextLine();
             try {
-                choice = keyboard.nextInt();
-                if (choice != 1 && choice != 2 && choice != 3) {
+                choixInt = Integer.parseInt(choix);
+                if (choixInt != 1 && choixInt != 2 && choixInt != 3 && choixInt != 4) {
                     throw new Exception("not 1, 2 or 3");
                 }
                 wrong = false;
             } catch (Exception e) {
-                System.out.println("veuillez entrer 1, 2 ou 3");
+                System.out.println("veuillez entrer 1, 2, 3 ou 4");
                 keyboard.next();
             }
         } while (wrong);
-        switch (choice) {
+        switch (choixInt) {
             case 1:
                 drink = boisson.Biere;
                 break;
@@ -151,6 +157,9 @@ public class Bar {
                 break;
             case 3:
                 drink = boisson.limonade;
+                break;
+            case 4 : 
+                drink = boisson.whisky;
                 break;
             default:
                 drink = boisson.eau;
@@ -162,14 +171,56 @@ public class Bar {
     }
 
     /**
-     * Cette méthode permet de se détendre et tenter de draguer
+     * Cette méthode permet de se détendre et tenter de draguer pour annuler sa dette et faire baisser son taux d'hormones
+     * 
      */
-    public void draguer(Client joueur) {
+    public int draguer(Client joueur, int dette) {
+        
+        int nombreAtrouver, nombreDuJoueur = 100, nombreEssais = 0;
+        String nombreString;
+        nombreAtrouver = (int) (Math.random() * 50);
+        System.out.println("Si vous êtes bon en drague, l'autre personne paiera pour vous et votre dette sera effacé");
+        
+        while(nombreDuJoueur != nombreAtrouver)
+        {
+            boolean recommencer = true;
+            while (recommencer)
+            {
+                nombreString = keyboard.nextLine();
+                try
+                {
+                   nombreDuJoueur = Integer.parseInt(nombreString);
+                   recommencer = false;
+                }
+                catch (NumberFormatException e)
+                {
+                    recommencer = true;
+                    System.out.println("Entrez un chiffre !");
+                }
+
+            }
+            
+            if (nombreDuJoueur < nombreAtrouver)
+            {
+                System.out.println("Le nombre à trouver est plus grand");
+            }
+            else if (nombreDuJoueur > nombreAtrouver)
+            {
+                System.out.println("Le nombre à trouver est plus petit");
+            }
+            nombreEssais ++;
+        }
+        
+        if (nombreEssais <= 5)
+        {
+            System.out.println("Felicitation, quelqu'un vient de payer pour vous");
+            dette = 0;
+        }
+        
         joueur.tauxHormone -= 10;
         if (joueur.tauxHormone < 0) {
             joueur.tauxHormone = 0;
         }
-        System.out.println("Vous venez de rencontrer une jolie fille \nQue lui racontez vous?");
-
+        return dette;
     }
 }

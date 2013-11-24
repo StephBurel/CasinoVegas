@@ -7,8 +7,7 @@ package casino.vegas;
 import static casino.vegas.Chambre.keyboard;
 
 /**
- *
- * @author isen
+ * Cette classe hérite de chambre et permet de prendre une chambre de luxe
  */
 public class ChambreLuxe extends Chambre {
 
@@ -16,11 +15,6 @@ public class ChambreLuxe extends Chambre {
      *
      */
     public ChambreLuxe() {
-
-
-        this.NbrOccupantsMax = 2;
-
-
     }
 
     /**

@@ -8,12 +8,9 @@ import static casino.vegas.Chambre.keyboard;
 import static casino.vegas.ChambreLuxe.prendreNourriture;
 
 /**
- *
- * @author isen
+ * Cette classe hérite de chambre et permet de prendre une chambre familliale
  */
 public class ChambreFamiliale extends Chambre {
-
-    static int prix;
 
     
     /**
@@ -113,7 +110,7 @@ public class ChambreFamiliale extends Chambre {
     }
 
     /**
-     *
+     * Vous permet de vous nourrir et de faire baisser le taux d'alcoolemie
      * @param joueur est le personnage joué
      */
     protected static void prendreNourriture(Client joueur) {
@@ -129,12 +126,13 @@ public class ChambreFamiliale extends Chambre {
     }
 
     /**
-     *
+     * Cette méthode vous permet de prendre une boisson
      * @param joueur
-     * @return
+     * @return la dette que vous devrez payer
      */
     protected static int prendreBoisson(Client joueur) {
 
         return Bar.PrendreUneConso(joueur);
+        
     }
 }
