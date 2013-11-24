@@ -20,7 +20,12 @@ public class Menu {
         System.out.println(" \nLe jeu commencera lorsque vous aurez choisi les réglages");
         
         joueur.réglageJoueur();
-        
-        
+        activité();
+
+    }
+    
+    public void activité()
+    {
+        joueur.faireActivité();
     }
 }

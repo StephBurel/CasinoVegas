@@ -16,12 +16,12 @@ import java.util.Scanner;
  * @author isen
  */
 public abstract class Jeux {
-    Scanner keyboard = new Scanner(System.in);
+    static Scanner keyboard = new Scanner(System.in);
     
     public abstract void commencer ();
     
     
-    public void demarrer(){
+    public static void demarrer(){
         
         String choixJeu;
         
@@ -47,7 +47,7 @@ public abstract class Jeux {
                     + "\n Pour jouer à la roulette tapez 2"
                     + "\n Pour jouer au Jackpot tapez 3"
                     + "\n Pour jouer au démineur tapez 4");
-            choixJeu = this.keyboard.nextLine();
+            choixJeu = keyboard.nextLine();
             switch (choixJeu)
             {
                 case "1" :
