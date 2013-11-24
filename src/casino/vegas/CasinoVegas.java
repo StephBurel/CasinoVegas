@@ -1,6 +1,9 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Classe Principale (contenant le main)
+ * contient l'intialisation des différentes classes utilisées dans le programme
+ * Permet au joueur d'accéder au menu pour ensuite jouer aux différents jeux
+ * 
+ * @ auteur : Amélie Ouillé
  */
 package casino.vegas;
 
@@ -9,10 +12,9 @@ import casino.vegas.JeuDes;
 import static casino.vegas.CasinoVegas.joueur;
 
 import java.util.Random;
-/**
- *
- * @author STEPHAN
- */
+
+
+
 public class CasinoVegas {
 
     /**
@@ -42,6 +44,7 @@ public class CasinoVegas {
     public static casino.vegas.Chambre chambre = new casino.vegas.Chambre();
     public static casino.vegas.Bar bar = new casino.vegas.Bar();
     
+    // initialisation des différents Jeux
     public static casino.vegas.Démineur demineur = new casino.vegas.Démineur();
     public static casino.vegas.Jackpot jackpot = new casino.vegas.Jackpot();
     public static casino.vegas.Roulette roulette = new casino.vegas.Roulette ();
@@ -51,7 +54,7 @@ public class CasinoVegas {
     
     
     
-    
+    // déclarations des variables
     static int arriveBraqueur;
     static boolean jouer = true;
     
@@ -61,26 +64,48 @@ public class CasinoVegas {
      */
     
     
-    
+    // main
     public static void main(String[] args) {
         int compteur = 0;
         arriveBraqueur = (int) (Math.random()*5) +1;
         
+        int braqueurClientOuEmployé = (int) (Math.random()*2);
+        
+        // lancement du jeu
         Menu casino = new Menu();
         
+        // boucle pour pouvoir effectuer plusieures action consécutives et sortir du jeu
         while (jouer)
         {
             compteur ++;
             casino.activité();
             
+            //générer une arrivée aléatoire du Braqueur
             if (compteur == arriveBraqueur)
             {
+                if (braqueurClientOuEmployé == 0)
+                {
+                    clientFictif1.entrerDansLeCasino();
+                    clientFictif1.cambrioler();
+                    joueur.choixActionBraquage();
+                }
+                else
+                {
+                    barman.entrerDansLeCasino();
+                    barman.cambrioler();
+                    joueur.choixActionBraquage();
+                }
                 
             }
             
             jouer = casino.rejouer();
         }
         
+        
+        // payez vos dette avant de partir
+        bar.payer(joueur);
+        
+        // quitter le jeu
         System.out.println("\n\n\nFelicitation vous avez survécue dans le jeu"
                 + "\nMerci d'avoir joué"
                 + "\nA bientôt dans notre jeu !");

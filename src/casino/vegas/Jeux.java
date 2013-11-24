@@ -1,6 +1,8 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Classe abstraite qui permet de mettre en place les différents jeux
+ * Elle permet de faire le choix entre les jeux et de rejouer ou non 
+ * 
+ * @ auteur : Amélie Ouillé
  */
 package casino.vegas;
 
@@ -11,19 +13,28 @@ import static casino.vegas.CasinoVegas.jackpot;
 import static casino.vegas.CasinoVegas.roulette;
 
 import java.util.Scanner;
-/**
- *
- * @author isen
- */
+
+
+
 public abstract class Jeux {
     static Scanner keyboard = new Scanner(System.in);
     static boolean resterDansLeCasino = true;
     
+    /*
+     * Methode qui permettra a chaque jeu de débuter
+     */
     public abstract void commencer ();
     
+    /*
+     * Methode qui permettra de tester l'état du joueur dans chaque jeu
+     */
     public abstract void etatJoueur();
     
-    
+    /*
+     * Message de bienvenue dans le casino
+     * Choix du jeu que l'on souhaite réaliser
+     * (tous les jeux ne sont pas disponnibles en fonction de l'âge)
+     */
     public static void demarrer(){
         
         String choixJeu;
@@ -86,11 +97,13 @@ public abstract class Jeux {
         }
     }
     
-    
+    /*
+     * Methode qui permet de rejouer ou de retourner au menu principale pour choisir une autre activité ou quitter
+     */
     public static void rejouerOuNon()
     {
         String reponse;
-        System.out.println("\n\nVoullez-vous rester dans le casino et faire d'autres jeu, ou souhaitez-vous en sortir ?"
+        System.out.println("\n\nVoulez-vous rester dans le casino et faire d'autres jeu, ou souhaitez-vous en sortir ?"
                 + "\nTapez 1 pour rester (tout autre caractère pour sortir)");
         reponse = keyboard.nextLine();
         

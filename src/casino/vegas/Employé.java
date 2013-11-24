@@ -1,6 +1,8 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Classe qui permet de définir les employés du casino
+ * Elle permet également de gérer l'état de l'utilisateur en fonction de son compte,  son état d'ébriété, son état psychologique ainsi que sa dépendance au jeu
+ * 
+ * @ auteur : Amélie Ouillé
  */
 package casino.vegas;
 
@@ -8,10 +10,7 @@ import java.util.Scanner;
 
 import static casino.vegas.CasinoVegas.joueur;
 
-/**
- *
- * @author isen
- */
+
 public class Employé extends Personnage implements Braqueur{
     
      enum posteEnum { Caissier, Sécurité , Croupier , Psychologue, Barman}
@@ -20,7 +19,9 @@ public class Employé extends Personnage implements Braqueur{
      Scanner keyboard = new Scanner(System.in);
     
      
-     // constructeur des employés fictifs
+     /*
+      * Constructeur permettant de créer les employés fictifs
+      */
      public Employé (String nom, String prénom, int age, int etatPsycho, int soldeCompte, int poste)
      {
         this.nom = nom;
@@ -32,7 +33,9 @@ public class Employé extends Personnage implements Braqueur{
         definirPoste(poste);
      }
      
-     // determiner le poste de l'employé
+     /*
+      * Méthode permettant d'associer au nombre code, l'état psychologique correspondant.
+      */
      public void definirPoste(int number)
      {
          switch (number)
@@ -55,6 +58,11 @@ public class Employé extends Personnage implements Braqueur{
         }
      }
      
+     
+     /*
+      * Méthode qui permet au croupier et au  barman de vérifier l'état du joueur
+      * ainsi, il sait si il doit faire appel à la sécurité ou à un psychologue
+      */
      public void testerJoueur ()
      {
          if(joueur.dépendanceJeu > 80)
@@ -82,6 +90,11 @@ public class Employé extends Personnage implements Braqueur{
          }
      }
      
+     
+     /*
+      * Méthode permettant de faire appel à la sécurité en cas de dette ou d'état d'ébriété avancé
+      * La sécurité peut virer le joueur ou bien lui faire payer une amende.
+      */
      public void appelerLaSécurité ()
      {
          if (joueur.soldeDuCompte<=0)
@@ -113,7 +126,12 @@ public class Employé extends Personnage implements Braqueur{
      }
      
      
-     
+     /*
+      * Méthode permettant d'appeler un psychologue si le joueur est dépressif ou suicidaire 
+      * mais également si celui-ci est trop dépend au jeu.
+      * Le psychologue utilise une de ses méthodes pour régler le problème.
+      * L'utilisateur pourra soit continuer à joueur soit être virer du casino si son état est trop critique
+      */
      public void appelerLePsy()
      {
          int questionNumero;
@@ -217,8 +235,10 @@ public class Employé extends Personnage implements Braqueur{
         
       
      
-     
-// interface Braqueur
+/*
+ * Méthodes implémentées par l'interface
+ * Cas où le braqueur est un employé de CasinoVegas
+ */
      
      public void entrerDansLeCasino()
      {

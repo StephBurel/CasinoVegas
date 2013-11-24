@@ -1,23 +1,21 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Classe qui permet de générer des clients qui vont pouvoir faire de activitées
+ * Permet de se rediriger vers les différentes activités (uniquement les classes primaires qui redirigerons elles-mêmes par la suite
+ * 
+ * @ auteur : Amélie Ouillé
  */
 package casino.vegas;
 
-/**
- *
- * @author isen
- */
+
 import java.util.Scanner;
 import java.util.Random;
 import static casino.vegas.CasinoVegas.jeu;
 import static casino.vegas.CasinoVegas.bar;
 import static casino.vegas.CasinoVegas.chambre;
 import static casino.vegas.CasinoVegas.joueur;
-/**
- *
- * @author isen
- */
+
+
+
 public class Client extends Personnage implements Braqueur{
     
     Scanner keyboard = new Scanner(System.in);
@@ -26,17 +24,23 @@ public class Client extends Personnage implements Braqueur{
     int motivation, tauxAlcoolémie, tauxHormone, dépendanceJeu;
     String choixActivité;
     
+    
+    /*
+     * constructeur vide qui permet de créer le personnage de l'utilisateur.
+     * Les paramètres du personnages seront inplémentés plus tard
+     */
     public Client ()
     {
         // constructeur vide pour créer le joueur
     }
     
     
-    // constructeur pour les joueurs fictifs
+    /*
+     * constructeur permettant de créer les personnages fictifs.
+     * on les implémentes avec tous les paramètres réglés.
+     */
     public Client (String nom, String prénom, int age, int soldeCompte, int etatPsycho, int motivation, int tauxAlcoolémie, int tauxHormones)
     {
-        //System.out.println("\n\nLes clients du casino : ");
-        
         this.nom = nom;
         this.prénom = prénom;
         this.age = age;
@@ -46,17 +50,18 @@ public class Client extends Personnage implements Braqueur{
         this.motivation = motivation;
         this.tauxAlcoolémie = tauxAlcoolémie;
         this.tauxHormone = tauxHormones ;
-        
-        //System.out.println(this.nom + " " + this.prénom + " " + this.age + " " + this.soldeDuCompte + " " + this.etatPsychoStr + " " + this.motivation + " " + this.tauxAlcoolémie + " " + this.tauxHormone);
     }
     
     
-    // création de profil du joueur
+    /*
+     * méthode qui permet de définir les parametres du personnage de l'utilisateur
+     * (gestion des erreurs de saisies)
+     */
     public void réglageJoueur()
     {
         boolean recommencer = true ;
         
-        System.out.println("Vous aller être un client du casino \nNous allons choisir vos caractéristiques \nEntrez votre prénom :");
+        System.out.println("Vous allez être un client du Casino Vegas \nNous allons choisir vos caractéristiques \nEntrez votre prénom :");
         this.prénom = keyboard.nextLine();
         System.out.println("Entrez votre nom");
         this.nom = keyboard.nextLine();
@@ -78,7 +83,7 @@ public class Client extends Personnage implements Braqueur{
         }
         
         
-        System.out.println("Choisissez votre état psychologique : \n   Entrez une valeure comprise entre 1 et 6");
+        System.out.println("Choisissez votre état psychologique : \n   Entrez une valeur comprise entre 1 et 6");
         recommencer = true;
         while (recommencer)
         {
@@ -130,7 +135,11 @@ public class Client extends Personnage implements Braqueur{
     }
     
     
-    // choisir l'activité que l'on veut faire
+    
+    /*
+     * Méthode qui permet à l'utilisateur de choisir dans quel lieu il souhaite se rendre
+     * Choix entre les classes Jeux, bar et chambre
+     */
     public void faireActivité()
     {
         this.choixActivité = "0";
@@ -140,8 +149,8 @@ public class Client extends Personnage implements Braqueur{
         while (!test)
         {
         
-            System.out.println("\n\nQuelle activité souhaitez vous faire ?"
-                    + "\n  Tapez 1 pour entrer dans le casino"
+            System.out.println("\n\nQuelle activité souhaitez-vous faire ?"
+                    + "\n  Tapez 1 pour entrer dans le casino (jeux)"
                     + "\n  Tapez 2 pour aller au bar"
                     + "\n  Tapez 3 pour aller dans une chambre de l'hotel");
             
@@ -167,7 +176,7 @@ public class Client extends Personnage implements Braqueur{
                 }
             
             catch(Exception e){
-                System.out.println("veuillez entrer 1, 2 ou 3");
+                System.out.println("Veuillez entrer 1, 2 ou 3");
                 keyboard.next();
                 }
         }while(recommencer);
@@ -185,7 +194,7 @@ public class Client extends Personnage implements Braqueur{
                     test=true;
                     break;
                 case "3" :
-                    chambre.demarrer();
+                    chambre.demarrer(joueur);
                     test= true;
                     break;
                 default :
@@ -198,14 +207,17 @@ public class Client extends Personnage implements Braqueur{
     }
     
     
-    // se cacher en cas d'attaque d'un braqueur
+    /*
+     * Methode qui permet à l'utilisateur de se cacher lorsque le braqueur fait son apparition.
+     * Le temps qu'il met à se cacher est défini par le temps qu'il met à resoudre le jeu du plus ou moins.
+     */
     public void seCacher()
     {
         int nombreAtrouver, nombreDuJoueur = 100, nombreEssais = 0;
         String nombreString;
         
         nombreAtrouver = (int) (Math.random() * 50);
-        System.out.println("Pour vous cacher à temps, il faut que vous trouviez le nombre recherché en moins de 5"
+        System.out.println("Pour vous cacher à temps, il faut que vous trouviez le nombre recherché en moins de 5 essais"
                 + "\nEntrez un nombre compris entre 0 et 50");
         
         while(nombreDuJoueur != nombreAtrouver)
@@ -255,7 +267,11 @@ public class Client extends Personnage implements Braqueur{
     }
     
     
-    // s'interposer pendant le braquage
+    
+    /*
+     * Méthode qui permet à l'utilisateur de s'interposer lorsque le braqueur fait son apparition
+     * Il a une chance sur deux pour que cela fonctionne, sinon il se fait tuer.
+     */
     public void interposerDansBraquage()
     {
         int chance;
@@ -278,11 +294,15 @@ public class Client extends Personnage implements Braqueur{
     }
     
     
+    
+    /*
+     * Methode qui permet à l'utilisateur de choisir l'action à exécuter lors de l'apparition du braqueur
+     */
     public void choixActionBraquage()
     {
         int choix = 0;
         boolean recommencer = true;
-        System.out.println("Que voullez-vous faire ?"
+        System.out.println("Que voulez-vous faire ?"
                 + "\nVous avez le choix entre vous cacher (tapez 1) ou vous interposer (tapez 2)");
         
          do{
@@ -316,7 +336,10 @@ public class Client extends Personnage implements Braqueur{
     
     
     
-// interface du braqueur
+/*
+ * Méthodes implémentées par l'interface
+ * Cas où le braqueur est un client de CasinoVegas
+ */
     
     public void entrerDansLeCasino()
     {

@@ -1,6 +1,8 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Class qui permet à l'utilisateur de jouer au jackpot
+ * Le jeu est accessible aux plus de 21 ans uniquement
+ * 
+ * @ auteur : Amélie Ouillé
  */
 package casino.vegas;
 
@@ -9,10 +11,9 @@ import java.util.Scanner;
 
 import static casino.vegas.CasinoVegas.joueur;
 import static casino.vegas.CasinoVegas.croupier;
-/**
- *
- * @author isen
- */
+
+
+
 public class Jackpot extends Jeux {
     
     public static int PRIXPARTIE = 2;
@@ -21,6 +22,11 @@ public class Jackpot extends Jeux {
     Scanner keyboard = new Scanner (System.in);
     String reponseJoueur;
     
+    /*
+     * Méthode qui permet de démarrer le jeu,
+     * tester l'état du joueur à tout moment
+     * et menu pour rejouer
+     */
     public void commencer ()
     {
         rejouer = true;
@@ -35,10 +41,10 @@ public class Jackpot extends Jeux {
         {
             lancer();
             etatJoueur();
-            System.out.println("Voullez-vous rejouer ?"
-                    + "\nTapez O pour rejouer");
+            System.out.println("Voulez-vous rejouer ?"
+                    + "\nTapez Y pour rejouer");
             this.reponseJoueur = keyboard.nextLine();
-            if (this.reponseJoueur.equalsIgnoreCase("o"))
+            if (this.reponseJoueur.equalsIgnoreCase("y"))
             {
                 this.rejouer = true;
                 this.gainEnJeu += 2;
@@ -59,10 +65,12 @@ public class Jackpot extends Jeux {
         }
     }
     
-    
+    /*
+     * methode permettant de tester l'état du joueur et voir si il est necessaire d'appeler la sécurité
+     * ou un psychologue.
+     */
     public void etatJoueur()
     {
-         // si on joue trop, notre état empire
             if (this.nombreLance == 7)
             {
                 System.out.println("Vous commencez à devenir accro à ce jeu, Attention !");
@@ -76,7 +84,7 @@ public class Jackpot extends Jeux {
             {
                 System.out.println("Votre état devient réellement critique !"
                         + "\nVous devez ralentir la cadence ! "
-                        + "\nVous perdez beaucoup d'argent et devenait dangereusement accro");
+                        + "\nVous perdez beaucoup d'argent et devenez dangereusement accro");
                 joueur.dépendanceJeu -=3;
                 joueur.etatPsycho --;
             }
@@ -84,6 +92,11 @@ public class Jackpot extends Jeux {
             croupier.testerJoueur();
     }
     
+    
+    /*
+     * méthode qui permet de faire tourner la machine
+     * il faut obtenir 3 "$" pour gagner
+     */
     public void lancer()
     {
         int rand1 = (int) (Math.random()*3) + 1;
@@ -118,7 +131,7 @@ public class Jackpot extends Jeux {
         if (rand1 == 3 && rand2 == 3 && rand3 == 3)
         {
             System.out.println("JACKPOT !!!!!"
-                    + "\nFélicitation vous remporter la somme de " + this.gainEnJeu + "€");
+                    + "\nFélicitation vous remportez la somme de " + this.gainEnJeu + "€");
             joueur.soldeDuCompte += this.gainEnJeu;
         }
     }

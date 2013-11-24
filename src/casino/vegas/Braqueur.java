@@ -1,12 +1,13 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Interface qui permet de définir un braqueur qui viendra perturber le bon fonctionnement du jeu
+ * Le braqueur implémente les classes client et employé
+ * 
+ * @ auteur : Amélie Ouillé
  */
 package casino.vegas;
 
 /**
- *
- * @author ISEN
+ *définition des deux méthodes qui seront overridé dans les classes implémentées
  */
 public interface Braqueur {
     

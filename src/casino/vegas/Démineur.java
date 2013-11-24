@@ -1,6 +1,8 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Classe qui permet à l'utilisateur de jouer au démineur
+ * Seul jeu accessible aux moins de 21 ans.
+ * 
+ * @ auteur : Amélie Ouillé
  */
 package casino.vegas;
 
@@ -10,10 +12,8 @@ import java.util.Scanner;
 import static casino.vegas.CasinoVegas.joueur;
 import static casino.vegas.CasinoVegas.croupier;
 
-/**
- *
- * @author isen
- */
+
+
 public class Démineur extends Jeux {
     
     Scanner keyboard = new Scanner(System.in);
@@ -21,7 +21,11 @@ public class Démineur extends Jeux {
     boolean rejouer = true;
     String reponseJoueur;
     
-    
+    /*
+     * Méthode qui permet de lancer le jeu et faire appel aux autres méthodes :
+     *  test de l'état du joueur
+     *  rejouer
+     */
     public void commencer ()
     {
         rejouer = true;
@@ -54,9 +58,13 @@ public class Démineur extends Jeux {
         }
     }
     
+    
+    /*
+     * methode permettant de tester l'état du joueur et voir si il est necessaire d'appeler la sécurité
+     * ou un psychologue.
+     */
     public void etatJoueur()
     {
-        // a force de jouer cela atteint le joueur du côté dépendance et psychologique
             if(this.nbRejoue == 5)
             {
                 System.out.println("Vous devenez accro, faites attention !");
@@ -80,6 +88,11 @@ public class Démineur extends Jeux {
             croupier.testerJoueur();
     }
     
+    
+    /*
+     * methode principale pour jouer
+     * fait appel à toutes les méthodes du jeu
+     */
     public void jouer ()
     {
         
@@ -128,7 +141,10 @@ public class Démineur extends Jeux {
         
     }
     
-    
+    /*
+     * Méthode qui permet d'afficher le plateau de jeu
+     * et de le réafficher à chaque étape
+     */
     public void affichage(char[][] matrice)
     {
         for (int i=1 ; i<11; i++)
@@ -142,6 +158,10 @@ public class Démineur extends Jeux {
         System.out.print("\n");
     }
     
+    
+    /*
+     * Méthode pour initialiser le plateau de jeu caché
+     */
     public void initialiser(char[][] matrice)
     {
         for (int i=0 ; i<12; i++)
@@ -153,6 +173,11 @@ public class Démineur extends Jeux {
         }
     }
     
+    
+    /*
+     * méthode qui permet de placer les bombes de manière aléatoire
+     * sur le plateau de jeu caché
+     */
     public void placerLesBombes(char matrice [][])
     {
         int a,b;
@@ -172,7 +197,11 @@ public class Démineur extends Jeux {
         }
     }
     
-    // pour ce que le joueur voit
+   
+    /*
+     * Methode qui permet d'initialiser le plateau de jeu vu par le joueur
+     * matrice remplie d'étoiles
+     */
     public void ajouterLesEtoiles(char matriceVue[][])
     {
         for (int i=1 ; i<11; i++)
@@ -185,7 +214,10 @@ public class Démineur extends Jeux {
     }
     
     
-    // choisir ou appuyer
+    /*
+     * méthode qui permet au joueur de définir les coordonnées de la case
+     * ou il souhaite tester s'il y a une bombe ou non
+     */
     public void choixDuJoueur ()
     {
         boolean recommencer ;
@@ -249,7 +281,10 @@ public class Démineur extends Jeux {
     }
     
     
-    // savoir combien il y a de bombes aux alentours d'une case
+    /*
+     * Méthode qui permet de définir dans le plateau caché
+     * le nombre de bombes alentours
+     */
     public void connaitreNbBombesAlentours (char matrice[][])
     {
         int a=0;
