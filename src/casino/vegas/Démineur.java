@@ -186,13 +186,64 @@ public class Démineur extends Jeux {
     // choisir ou appuyer
     public void choixDuJoueur ()
     {
+        boolean recommencer ;
         String ligneStr, colonneStr;
         System.out.println("Veuillez entrer la ligne que vous souhaitez :");
-        ligneStr = this.keyboard.nextLine();
-        this.ligne = Integer.parseInt(ligneStr);
+        recommencer = true;
+        while (recommencer)
+        {
+            ligneStr = this.keyboard.nextLine();
+            try
+            {
+               this.ligne = Integer.parseInt(ligneStr);
+               if (this.ligne<1 || this.ligne >10)
+               {
+                   throw new Exception ("Pas entre 1 et 10");
+               }
+               recommencer = false;
+            }
+            catch (NumberFormatException e)
+            {
+                recommencer = true;
+                System.out.println("Entrez un chiffre entre 1 et 10");
+            }
+            catch (Exception e)
+            {
+                recommencer = true;
+                System.out.println("Le chiffre doit être en 1 et 10");
+            }
+            
+        }
+        
+        
         System.out.println("Veuillez entrer la colonne que vous souhaitez :");
-        colonneStr = this.keyboard.nextLine();
-        this.colonne = Integer.parseInt(colonneStr);
+        recommencer = true;
+        while (recommencer)
+        {
+            colonneStr = this.keyboard.nextLine();
+            try
+            {
+               this.colonne = Integer.parseInt(colonneStr);
+               if (this.colonne<1 || this.colonne >10)
+               {
+                   throw new Exception ("Pas entre 1 et 10");
+               }
+               recommencer = false;
+            }
+            catch (NumberFormatException e)
+            {
+                recommencer = true;
+                System.out.println("Entrez un chiffre entre 1 et 10");
+            }
+            catch (Exception e)
+            {
+                recommencer = true;
+                System.out.println("Le chiffre doit être en 1 et 10");
+            }
+            
+        }
+        
+        
     }
     
     

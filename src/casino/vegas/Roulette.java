@@ -121,23 +121,80 @@ public class Roulette extends Jeux {
     
     public void miseJoueur()
     {
-        int nbDeMise, numeroMise, sommeMise;
+        int nbDeMise=0, numeroMise=-1, sommeMise=0;
         String nbDeMiseStr, numeroMiseStr, sommeMiseStr;
+        boolean recommencer = true;
         
         System.out.println("Croupier : Faites vos Jeux");
         System.out.println("Sur combien de nombre souhaitez vous miser ?");
-        nbDeMiseStr = keyboard.nextLine();
-        nbDeMise = Integer.parseInt(nbDeMiseStr);
+        recommencer = true;
+            while (recommencer)
+            {
+                nbDeMiseStr = keyboard.nextLine();
+                try
+                {
+                   nbDeMise = Integer.parseInt(nbDeMiseStr);
+                   recommencer = false;
+                }
+                catch (NumberFormatException e)
+                {
+                    recommencer = true;
+                    System.out.println("Entrez un chiffre !");
+                }
+
+            }
+            
         this.gainPossible = (int) 35/nbDeMise;
         
         for(int i =0; i<nbDeMise; i++)
         {
             System.out.println("Sur quel chiffre souhaitez-vous miser ?");
-            numeroMiseStr = keyboard.nextLine();
-            numeroMise = Integer.parseInt(numeroMiseStr);
+            recommencer = true;
+            while (recommencer)
+            {
+                numeroMiseStr = keyboard.nextLine();
+                try
+                {
+                   numeroMise = Integer.parseInt(numeroMiseStr);
+                   if (numeroMise<0 || numeroMise >36)
+                   {
+                       throw new Exception ("Pas entre 0 et 36");
+                   }
+                   recommencer = false;
+                }
+                catch (NumberFormatException e)
+                {
+                    recommencer = true;
+                    System.out.println("Entrez un chiffre entre 0 et 36");
+                }
+                catch (Exception e)
+                {
+                    recommencer = true;
+                    System.out.println("Le chiffre doit être en 0 et 36");
+                }
+
+            }
+            
+            
             System.out.println("Combien souhaitez vous miser dessus ?");
-            sommeMiseStr = keyboard.nextLine();
-            sommeMise = Integer.parseInt(sommeMiseStr);
+            recommencer = true;
+            while (recommencer)
+            {
+                sommeMiseStr = keyboard.nextLine();
+                try
+                {
+                   sommeMise = Integer.parseInt(sommeMiseStr);
+                   recommencer = false;
+                }
+                catch (NumberFormatException e)
+                {
+                    recommencer = true;
+                    System.out.println("Entrez un chiffre !");
+                }
+
+            }
+            
+            
             joueur.soldeDuCompte -= sommeMise;
             
             if(numeroMise == this.nombreSorti)

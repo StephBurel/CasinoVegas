@@ -49,23 +49,32 @@ public abstract class Jeux {
                     + "\n Pour jouer à la roulette tapez 2"
                     + "\n Pour jouer au Jackpot tapez 3"
                     + "\n Pour jouer au démineur tapez 4");
-            choixJeu = keyboard.nextLine();
-            switch (choixJeu)
+            boolean recommencer = true;
+            while (recommencer)
             {
-                case "1" :
-                    jeuDes.commencer();
-                    break;
-                case "2" :
-                    roulette.commencer();
-                    break;
-                case "3" :
-                    jackpot.commencer();
-                    break;
-                case "4" :
-                    demineur.commencer();
-                    break;
-                default :
-                    System.out.println("Désolé, la saisie n'est pas valide... Veuillez recommencer");
+                choixJeu = keyboard.nextLine();
+                switch (choixJeu)
+                {
+                    case "1" :
+                        jeuDes.commencer();
+                        recommencer = false;
+                        break;
+                    case "2" :
+                        roulette.commencer();
+                        recommencer = false;
+                        break;
+                    case "3" :
+                        recommencer = false;
+                        jackpot.commencer();
+                        break;
+                    case "4" :
+                        recommencer = false;
+                        demineur.commencer();
+                        break;
+                    default :
+                        recommencer = true;
+                        System.out.println("Désolé, la saisie n'est pas valide... Veuillez recommencer");
+                }
             }
         }
     }

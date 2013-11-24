@@ -54,17 +54,57 @@ public class Client extends Personnage implements Braqueur{
     // création de profil du joueur
     public void réglageJoueur()
     {
+        boolean recommencer = true ;
+        
         System.out.println("Vous aller être un client du casino \nNous allons choisir vos caractéristiques \nEntrez votre prénom :");
         this.prénom = keyboard.nextLine();
         System.out.println("Entrez votre nom");
         this.nom = keyboard.nextLine();
         System.out.println("Entrez votre age");
-        this.ageString = keyboard.nextLine();
-        this.age = Integer.parseInt(this.ageString);
+        while (recommencer)
+        {
+            this.ageString = keyboard.nextLine();
+            try
+            {
+               this.age = Integer.parseInt(this.ageString);
+               recommencer = false;
+            }
+            catch (NumberFormatException e)
+            {
+                recommencer = true;
+                System.out.println("Entrez un chiffre !");
+            }
+            
+        }
+        
         
         System.out.println("Choisissez votre état psychologique : \n   Entrez une valeure comprise entre 1 et 6");
-        this.etatPsychoNumStr = keyboard.nextLine();
-        this.etatPsycho = Integer.parseInt(this.etatPsychoNumStr);
+        recommencer = true;
+        while (recommencer)
+        {
+            this.etatPsychoNumStr = keyboard.nextLine();
+            try
+            {
+               this.etatPsycho = Integer.parseInt(this.etatPsychoNumStr);
+               if (this.etatPsycho <1 || this.etatPsycho >6)
+               {
+                   throw new Exception ("Pas entre 1 et 6");
+               }
+               recommencer = false;
+            }
+            catch (NumberFormatException e)
+            {
+                recommencer = true;
+                System.out.println("Entrez un chiffre entre 1 et 6");
+            }
+            catch (Exception e)
+            {
+                recommencer = true;
+                System.out.println("Le chiffre doit être en 1 et 6");
+            }
+            
+        }
+        
         
         definirEtatPsycho(this.etatPsycho );
         
@@ -95,6 +135,7 @@ public class Client extends Personnage implements Braqueur{
     {
         this.choixActivité = "0";
         boolean test = false;
+        boolean recommencer = true;
         
         while (!test)
         {
@@ -103,7 +144,35 @@ public class Client extends Personnage implements Braqueur{
                     + "\n  Tapez 1 pour entrer dans le casino"
                     + "\n  Tapez 2 pour aller au bar"
                     + "\n  Tapez 3 pour aller dans une chambre de l'hotel");
-            this.choixActivité = keyboard.nextLine();
+            
+         // lire le choix avec gestion des exceptions   
+        do{
+        
+            try{
+                this.choixActivité = keyboard.nextLine();
+                switch (this.choixActivité)
+                    {
+                    case "1" :
+                        recommencer = false;
+                        break;
+                    case "2" :
+                        recommencer = false;
+                        break;
+                    case "3" :
+                        recommencer = false;
+                        break;
+                    default :
+                        throw new Exception("Ni 1 ni 2 ni 3");
+                    }
+                }
+            
+            catch(Exception e){
+                System.out.println("veuillez entrer 1, 2 ou 3");
+                keyboard.next();
+                }
+        }while(recommencer);
+            
+            
 
             switch (this.choixActivité)
             {
@@ -141,9 +210,24 @@ public class Client extends Personnage implements Braqueur{
         
         while(nombreDuJoueur != nombreAtrouver)
         {
-            nombreString = keyboard.nextLine();
-            nombreDuJoueur = Integer.parseInt(nombreString);
+            boolean recommencer = true;
+            while (recommencer)
+            {
+                nombreString = keyboard.nextLine();
+                try
+                {
+                   nombreDuJoueur = Integer.parseInt(nombreString);
+                   recommencer = false;
+                }
+                catch (NumberFormatException e)
+                {
+                    recommencer = true;
+                    System.out.println("Entrez un chiffre !");
+                }
+
+            }
             
+
             if (nombreDuJoueur < nombreAtrouver)
             {
                 System.out.println("Le nombre à trouver est plus grand");
