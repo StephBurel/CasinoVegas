@@ -1,4 +1,4 @@
-/*
+/**
  * Class qui permet à l'utilisateur de jouer au jackpot
  * Le jeu est accessible aux plus de 21 ans uniquement
  * 
@@ -22,7 +22,7 @@ public class Jackpot extends Jeux {
     Scanner keyboard = new Scanner (System.in);
     String reponseJoueur;
     
-    /*
+    /**
      * Méthode qui permet de démarrer le jeu,
      * tester l'état du joueur à tout moment
      * et menu pour rejouer
@@ -65,7 +65,7 @@ public class Jackpot extends Jeux {
         }
     }
     
-    /*
+    /**
      * methode permettant de tester l'état du joueur et voir si il est necessaire d'appeler la sécurité
      * ou un psychologue.
      */
@@ -93,7 +93,7 @@ public class Jackpot extends Jeux {
     }
     
     
-    /*
+    /**
      * méthode qui permet de faire tourner la machine
      * il faut obtenir 3 "$" pour gagner
      */

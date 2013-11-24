@@ -1,4 +1,4 @@
-/*
+/**
  * Classe permettant de définir l'ensemble des personnages (clients et employés)
  * Elle permet de définir l'état psychologique des personnages
  * 
@@ -17,7 +17,7 @@ public class Personnage {
     enum etatPsychoEnum { Suicidaire, Dépressif , AccroAuJeu , Anxieux, Joyeux, Amoureux}
     
     
-    /*
+    /**
      * Méthode qui permet de définir l'état psychologique de chacun de joueur.
      * Elle utilise le nombre qui correspond à un état pour y associer son titre.
      */

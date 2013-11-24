@@ -1,4 +1,4 @@
-/*
+/**
  * Classe abstraite qui permet de mettre en place les différents jeux
  * Elle permet de faire le choix entre les jeux et de rejouer ou non 
  * 
@@ -20,17 +20,17 @@ public abstract class Jeux {
     static Scanner keyboard = new Scanner(System.in);
     static boolean resterDansLeCasino = true;
     
-    /*
+    /**
      * Methode qui permettra a chaque jeu de débuter
      */
     public abstract void commencer ();
     
-    /*
+    /**
      * Methode qui permettra de tester l'état du joueur dans chaque jeu
      */
     public abstract void etatJoueur();
     
-    /*
+    /**
      * Message de bienvenue dans le casino
      * Choix du jeu que l'on souhaite réaliser
      * (tous les jeux ne sont pas disponnibles en fonction de l'âge)
@@ -97,7 +97,7 @@ public abstract class Jeux {
         }
     }
     
-    /*
+    /**
      * Methode qui permet de rejouer ou de retourner au menu principale pour choisir une autre activité ou quitter
      */
     public static void rejouerOuNon()

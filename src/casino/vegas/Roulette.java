@@ -1,4 +1,4 @@
-/*
+/**
  * Classe pour jouer à la roulette
  * 
  * @ auteur : Amélie Ouillé
@@ -18,7 +18,7 @@ public class Roulette extends Jeux {
     boolean gagner = false, rejouer = true;
     
     
-    /*
+    /**
      * Méthode qui permet de démarrer le jeu,
      * tester l'état du joueur à tout moment
      * et menu pour rejouer
@@ -57,7 +57,7 @@ public class Roulette extends Jeux {
     
     
     
-    /*
+    /**
      * methode permettant de tester l'état du joueur et voir si il est necessaire d'appeler la sécurité
      * ou un psychologue.
      */
@@ -84,7 +84,7 @@ public class Roulette extends Jeux {
             croupier.testerJoueur();
     }
     
-    /*
+    /**
      * Méthode qui permet de rejouer
      */
     public void rejouerRoulette()
@@ -105,7 +105,7 @@ public class Roulette extends Jeux {
     }
     
     
-    /*
+    /**
      * méthode qui permet d'afficher les règles du jeu
      */
     public void règles()
@@ -116,7 +116,7 @@ public class Roulette extends Jeux {
     }
     
     
-    /*
+    /**
      * méthode qui permet de dire si l'on a gagné
      * et de créditer la somme sur le compte
      */
@@ -136,7 +136,7 @@ public class Roulette extends Jeux {
     }
     
     
-    /*
+    /**
      * methode qui définit le nombre sorti par la roulette
      */
     public void lancéDuCroupier()
@@ -146,7 +146,7 @@ public class Roulette extends Jeux {
     
     
     
-    /*
+    /**
      * méthode qui permet au joueur de choisir sur quoi il veut miser et combien
      */
     public void miseJoueur()

@@ -1,4 +1,4 @@
-/*
+/**
  * Classe qui permet au joueur de naviguer dans l'espace de jeu et de quitter celui-ci
  * Elle permet également le démarrage du jeu
  * 
@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Menu {
     Scanner keyboard = new Scanner (System.in);
     
-    /*
+    /**
      * constructeur qui permet à l'utilisateur de créer son personnage
      * et de faire les réglages des différents paramètres
      */
@@ -30,7 +30,7 @@ public class Menu {
     }
     
     
-    /*
+    /**
      * Méthode qui permet de d'appeler la méthode dans Client
      * cette méthode permet de choisir l'activité que l'utilisateur souhaite faire
      */
@@ -40,7 +40,7 @@ public class Menu {
     }
     
     
-    /*
+    /**
      * fonction qui permet à l'utilisateur de choisir si il souhaite continuer
      * à jouer et donc choisir une nouvelle activité ou si il souhaite quitter 
      * définitivement le jeu

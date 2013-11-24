@@ -1,4 +1,4 @@
-/*
+/**
  * Classe qui permet de générer des clients qui vont pouvoir faire de activitées
  * Permet de se rediriger vers les différentes activités (uniquement les classes primaires qui redirigerons elles-mêmes par la suite
  * 
@@ -25,7 +25,7 @@ public class Client extends Personnage implements Braqueur{
     String choixActivité;
     
     
-    /*
+    /**
      * constructeur vide qui permet de créer le personnage de l'utilisateur.
      * Les paramètres du personnages seront inplémentés plus tard
      */
@@ -35,7 +35,7 @@ public class Client extends Personnage implements Braqueur{
     }
     
     
-    /*
+    /**
      * constructeur permettant de créer les personnages fictifs.
      * on les implémentes avec tous les paramètres réglés.
      */
@@ -53,7 +53,7 @@ public class Client extends Personnage implements Braqueur{
     }
     
     
-    /*
+    /**
      * méthode qui permet de définir les parametres du personnage de l'utilisateur
      * (gestion des erreurs de saisies)
      */
@@ -136,7 +136,7 @@ public class Client extends Personnage implements Braqueur{
     
     
     
-    /*
+    /**
      * Méthode qui permet à l'utilisateur de choisir dans quel lieu il souhaite se rendre
      * Choix entre les classes Jeux, bar et chambre
      */
@@ -207,7 +207,7 @@ public class Client extends Personnage implements Braqueur{
     }
     
     
-    /*
+    /**
      * Methode qui permet à l'utilisateur de se cacher lorsque le braqueur fait son apparition.
      * Le temps qu'il met à se cacher est défini par le temps qu'il met à resoudre le jeu du plus ou moins.
      */
@@ -268,7 +268,7 @@ public class Client extends Personnage implements Braqueur{
     
     
     
-    /*
+    /**
      * Méthode qui permet à l'utilisateur de s'interposer lorsque le braqueur fait son apparition
      * Il a une chance sur deux pour que cela fonctionne, sinon il se fait tuer.
      */
@@ -295,7 +295,7 @@ public class Client extends Personnage implements Braqueur{
     
     
     
-    /*
+    /**
      * Methode qui permet à l'utilisateur de choisir l'action à exécuter lors de l'apparition du braqueur
      */
     public void choixActionBraquage()
@@ -336,7 +336,7 @@ public class Client extends Personnage implements Braqueur{
     
     
     
-/*
+/**
  * Méthodes implémentées par l'interface
  * Cas où le braqueur est un client de CasinoVegas
  */

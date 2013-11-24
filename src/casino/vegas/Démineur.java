@@ -1,4 +1,4 @@
-/*
+/**
  * Classe qui permet à l'utilisateur de jouer au démineur
  * Seul jeu accessible aux moins de 21 ans.
  * 
@@ -21,7 +21,7 @@ public class Démineur extends Jeux {
     boolean rejouer = true;
     String reponseJoueur;
     
-    /*
+    /**
      * Méthode qui permet de lancer le jeu et faire appel aux autres méthodes :
      *  test de l'état du joueur
      *  rejouer
@@ -59,7 +59,7 @@ public class Démineur extends Jeux {
     }
     
     
-    /*
+    /**
      * methode permettant de tester l'état du joueur et voir si il est necessaire d'appeler la sécurité
      * ou un psychologue.
      */
@@ -89,7 +89,7 @@ public class Démineur extends Jeux {
     }
     
     
-    /*
+    /**
      * methode principale pour jouer
      * fait appel à toutes les méthodes du jeu
      */
@@ -141,7 +141,7 @@ public class Démineur extends Jeux {
         
     }
     
-    /*
+    /**
      * Méthode qui permet d'afficher le plateau de jeu
      * et de le réafficher à chaque étape
      */
@@ -159,7 +159,7 @@ public class Démineur extends Jeux {
     }
     
     
-    /*
+    /**
      * Méthode pour initialiser le plateau de jeu caché
      */
     public void initialiser(char[][] matrice)
@@ -174,7 +174,7 @@ public class Démineur extends Jeux {
     }
     
     
-    /*
+    /**
      * méthode qui permet de placer les bombes de manière aléatoire
      * sur le plateau de jeu caché
      */
@@ -198,7 +198,7 @@ public class Démineur extends Jeux {
     }
     
    
-    /*
+    /**
      * Methode qui permet d'initialiser le plateau de jeu vu par le joueur
      * matrice remplie d'étoiles
      */
@@ -214,7 +214,7 @@ public class Démineur extends Jeux {
     }
     
     
-    /*
+    /**
      * méthode qui permet au joueur de définir les coordonnées de la case
      * ou il souhaite tester s'il y a une bombe ou non
      */
@@ -281,7 +281,7 @@ public class Démineur extends Jeux {
     }
     
     
-    /*
+    /**
      * Méthode qui permet de définir dans le plateau caché
      * le nombre de bombes alentours
      */

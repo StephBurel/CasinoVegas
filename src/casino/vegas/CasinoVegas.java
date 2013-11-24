@@ -1,4 +1,4 @@
-/*
+/**
  * Classe Principale (contenant le main)
  * contient l'intialisation des différentes classes utilisées dans le programme
  * Permet au joueur d'accéder au menu pour ensuite jouer aux différents jeux

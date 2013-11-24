@@ -1,4 +1,4 @@
-/*
+/**
  * Interface qui permet de définir un braqueur qui viendra perturber le bon fonctionnement du jeu
  * Le braqueur implémente les classes client et employé
  * 

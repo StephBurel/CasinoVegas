@@ -1,4 +1,4 @@
-/*
+/**
  * Classe qui permet de jouer au 421
  * 
  * @ auteur : Amélie Ouillé
@@ -24,7 +24,7 @@ public class JeuDes extends Jeux {
     
     Scanner keyboard = new Scanner(System.in);
     
-    /*
+    /**
      * Méthode qui permet de démarrer le jeu,
      * tester l'état du joueur à tout moment
      * et menu pour rejouer
@@ -75,7 +75,7 @@ public class JeuDes extends Jeux {
         }
     }
     
-    /*
+    /**
      * méthode qui permet d'afficher les règles du jeu
      */
     public void regles()
@@ -88,7 +88,7 @@ public class JeuDes extends Jeux {
     
     
     
-    /*
+    /**
      * methode permettant de tester l'état du joueur et voir si il est necessaire d'appeler la sécurité
      * ou un psychologue.
      */
@@ -116,7 +116,7 @@ public class JeuDes extends Jeux {
     }
     
     
-    /*
+    /**
      * Méthode qui permet de savoir combien le joueur gagne
      * et le créditer sur son compte.
      */
@@ -141,7 +141,7 @@ public class JeuDes extends Jeux {
     }
     
 
-    /*
+    /**
      * Méthode qui permet de jouer et de lancer les dès
      * jusqu'à obtention de 421
      */

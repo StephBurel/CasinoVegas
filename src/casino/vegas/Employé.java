@@ -1,4 +1,4 @@
-/*
+/**
  * Classe qui permet de définir les employés du casino
  * Elle permet également de gérer l'état de l'utilisateur en fonction de son compte,  son état d'ébriété, son état psychologique ainsi que sa dépendance au jeu
  * 
@@ -19,7 +19,7 @@ public class Employé extends Personnage implements Braqueur{
      Scanner keyboard = new Scanner(System.in);
     
      
-     /*
+     /**
       * Constructeur permettant de créer les employés fictifs
       */
      public Employé (String nom, String prénom, int age, int etatPsycho, int soldeCompte, int poste)
@@ -33,7 +33,7 @@ public class Employé extends Personnage implements Braqueur{
         definirPoste(poste);
      }
      
-     /*
+     /**
       * Méthode permettant d'associer au nombre code, l'état psychologique correspondant.
       */
      public void definirPoste(int number)
@@ -59,7 +59,7 @@ public class Employé extends Personnage implements Braqueur{
      }
      
      
-     /*
+     /**
       * Méthode qui permet au croupier et au  barman de vérifier l'état du joueur
       * ainsi, il sait si il doit faire appel à la sécurité ou à un psychologue
       */
@@ -91,7 +91,7 @@ public class Employé extends Personnage implements Braqueur{
      }
      
      
-     /*
+     /**
       * Méthode permettant de faire appel à la sécurité en cas de dette ou d'état d'ébriété avancé
       * La sécurité peut virer le joueur ou bien lui faire payer une amende.
       */
@@ -126,7 +126,7 @@ public class Employé extends Personnage implements Braqueur{
      }
      
      
-     /*
+     /**
       * Méthode permettant d'appeler un psychologue si le joueur est dépressif ou suicidaire 
       * mais également si celui-ci est trop dépend au jeu.
       * Le psychologue utilise une de ses méthodes pour régler le problème.
@@ -235,7 +235,7 @@ public class Employé extends Personnage implements Braqueur{
         
       
      
-/*
+/**
  * Méthodes implémentées par l'interface
  * Cas où le braqueur est un employé de CasinoVegas
  */
