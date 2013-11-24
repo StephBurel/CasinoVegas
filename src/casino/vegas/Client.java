@@ -194,7 +194,7 @@ public class Client extends Personnage implements Braqueur{
                     test=true;
                     break;
                 case "3" :
-                    chambre.demarrer();
+                    chambre.demarrer(joueur);
                     test= true;
                     break;
                 default :
