@@ -1,6 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Classe pour jouer à la roulette
+ * 
+ * @ auteur : Amélie Ouillé
  */
 package casino.vegas;
 
@@ -8,16 +9,20 @@ import static casino.vegas.CasinoVegas.joueur;
 import static casino.vegas.CasinoVegas.croupier;
 
 import java.util.Scanner;
-/**
- *
- * @author isen
- */
+
+
 public class Roulette extends Jeux {
     
     int nombreSorti, gainPossible, nbLance =0;
     Scanner keyboard = new Scanner(System.in);
     boolean gagner = false, rejouer = true;
     
+    
+    /*
+     * Méthode qui permet de démarrer le jeu,
+     * tester l'état du joueur à tout moment
+     * et menu pour rejouer
+     */
     public void commencer ()
     {
         rejouer = true;
@@ -51,6 +56,11 @@ public class Roulette extends Jeux {
     }
     
     
+    
+    /*
+     * methode permettant de tester l'état du joueur et voir si il est necessaire d'appeler la sécurité
+     * ou un psychologue.
+     */
     public void etatJoueur()
     {
         if (this.nbLance == 7)
@@ -66,7 +76,7 @@ public class Roulette extends Jeux {
             {
                 System.out.println("Votre état devient réellement critique !"
                         + "\nVous devez ralentir la cadence ! "
-                        + "\nVous perdez beaucoup d'argent et devenait dangereusement accro");
+                        + "\nVous perdez beaucoup d'argent et devenez dangereusement accro");
                 joueur.dépendanceJeu -=3;
                 joueur.etatPsycho --;
             }
@@ -74,11 +84,13 @@ public class Roulette extends Jeux {
             croupier.testerJoueur();
     }
     
-    
+    /*
+     * Méthode qui permet de rejouer
+     */
     public void rejouerRoulette()
     {
         String rejouerStr;
-        System.out.println("\n\nVoullez-vous rejouer ?"
+        System.out.println("\n\nVoulez-vous rejouer ?"
                 + "\nTapez 1 pour rejouer");
         rejouerStr = keyboard.nextLine();
         
@@ -92,6 +104,10 @@ public class Roulette extends Jeux {
         }
     }
     
+    
+    /*
+     * méthode qui permet d'afficher les règles du jeu
+     */
     public void règles()
     {
         System.out.println("Pour jouer : vous devait choisir un ou plusieurs numéros sur lesquels miser et la somme à miser"
@@ -99,6 +115,11 @@ public class Roulette extends Jeux {
                 + "\nLa deuxième sera le nombre que vous souhaitez miser et combien vous voullez miser");
     }
     
+    
+    /*
+     * méthode qui permet de dire si l'on a gagné
+     * et de créditer la somme sur le compte
+     */
     public void resultat()
     {
         if(this.gagner == true)
@@ -115,12 +136,19 @@ public class Roulette extends Jeux {
     }
     
     
+    /*
+     * methode qui définit le nombre sorti par la roulette
+     */
     public void lancéDuCroupier()
     {
         this.nombreSorti = (int) (Math.random()*36);
     }
     
     
+    
+    /*
+     * méthode qui permet au joueur de choisir sur quoi il veut miser et combien
+     */
     public void miseJoueur()
     {
         int nbDeMise=0, numeroMise=-1, sommeMise=0;

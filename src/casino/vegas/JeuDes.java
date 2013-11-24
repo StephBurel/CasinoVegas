@@ -1,6 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Classe qui permet de jouer au 421
+ * 
+ * @ auteur : Amélie Ouillé
  */
 package casino.vegas;
 
@@ -8,10 +9,8 @@ import static casino.vegas.CasinoVegas.joueur;
 import static casino.vegas.CasinoVegas.croupier;
 
 import java.util.Scanner;
-/**
- *
- * @author isen
- */
+
+
 public class JeuDes extends Jeux {
     
     public static int PRIXPARTIE = 3;
@@ -25,6 +24,11 @@ public class JeuDes extends Jeux {
     
     Scanner keyboard = new Scanner(System.in);
     
+    /*
+     * Méthode qui permet de démarrer le jeu,
+     * tester l'état du joueur à tout moment
+     * et menu pour rejouer
+     */
     public void commencer ()
     {
         rejouer = true;
@@ -46,7 +50,7 @@ public class JeuDes extends Jeux {
             jouer();
             resultat();
             etatJoueur();
-            System.out.println("Voullez-vous rejouer?"
+            System.out.println("Voulez-vous rejouer?"
                     + "\nSi oui tapez 1");
             this.reponseString = keyboard.nextLine();
             if (this.reponseString.equals("1") )
@@ -71,6 +75,9 @@ public class JeuDes extends Jeux {
         }
     }
     
+    /*
+     * méthode qui permet d'afficher les règles du jeu
+     */
     public void regles()
     {
         System.out.println("\nVoici les règles du jeu :"
@@ -80,6 +87,11 @@ public class JeuDes extends Jeux {
     }
     
     
+    
+    /*
+     * methode permettant de tester l'état du joueur et voir si il est necessaire d'appeler la sécurité
+     * ou un psychologue.
+     */
     public void etatJoueur()
     {
         if (this.nbJeu == 7)
@@ -95,7 +107,7 @@ public class JeuDes extends Jeux {
             {
                 System.out.println("Votre état devient réellement critique !"
                         + "\nVous devez ralentir la cadence ! "
-                        + "\nVous perdez beaucoup d'argent et devenait dangereusement accro");
+                        + "\nVous perdez beaucoup d'argent et devenez dangereusement accro");
                 joueur.dépendanceJeu -=3;
                 joueur.etatPsycho --;
             }
@@ -104,7 +116,10 @@ public class JeuDes extends Jeux {
     }
     
     
-    
+    /*
+     * Méthode qui permet de savoir combien le joueur gagne
+     * et le créditer sur son compte.
+     */
     public void resultat()
     {
         if (this.nbLance < 3)
@@ -126,6 +141,10 @@ public class JeuDes extends Jeux {
     }
     
 
+    /*
+     * Méthode qui permet de jouer et de lancer les dès
+     * jusqu'à obtention de 421
+     */
     public void jouer()
     {
         

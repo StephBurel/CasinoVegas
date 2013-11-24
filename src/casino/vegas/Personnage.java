@@ -1,13 +1,12 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Classe permettant de définir l'ensemble des personnages (clients et employés)
+ * Elle permet de définir l'état psychologique des personnages
+ * 
+ * @ auteur : Amélie Ouillé
  */
 package casino.vegas;
 
-/**
- *
- * @author STEPHAN
- */
+
 public class Personnage {
     
     String prénom, nom;
@@ -17,6 +16,11 @@ public class Personnage {
     
     enum etatPsychoEnum { Suicidaire, Dépressif , AccroAuJeu , Anxieux, Joyeux, Amoureux}
     
+    
+    /*
+     * Méthode qui permet de définir l'état psychologique de chacun de joueur.
+     * Elle utilise le nombre qui correspond à un état pour y associer son titre.
+     */
     public void definirEtatPsycho (int number)
     {
         switch (number)
