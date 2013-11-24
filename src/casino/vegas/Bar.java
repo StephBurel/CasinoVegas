@@ -16,22 +16,21 @@ public class Bar {
      * représente le cumul des du prix total des boissons du consommateur
      */
     public int dette = 0;
-    
     public Client client = new Client();
-    
-    
+
     /**
      * Cette méthode est la méthode lancée au démarrage du bar
+     *
      * @param perso est la personne que l'on joue actuellement
      */
     public void demarrer(Client perso) {
-        
+
         int choiceInt = -1;
         dette = 0;
         this.client = perso;
         boolean wrong = true;
         boolean continuer = true;
-        String choice ;
+        String choice;
         char quit = 'N';
         do {
             System.out.println("Bienvenue dans le bar");
@@ -40,7 +39,7 @@ public class Bar {
                     + "\n pour draguer tapez 2"
                     + "\n pour payer tapez 3");
             do {
-                    choice = keyboard.nextLine();
+                choice = keyboard.nextLine();
                 try {
                     choiceInt = Integer.parseInt(choice);
                     if (choiceInt != 1 && choiceInt != 2 && choiceInt != 3) {
@@ -76,7 +75,7 @@ public class Bar {
                     } else if (quit == 'Y') {
                         continuer = false;
                     }
-                    wrong= false;
+                    wrong = false;
                 } catch (Exception e) {
                     System.out.println("Veuillez entre Y ou N");
                     keyboard.next();
@@ -87,9 +86,10 @@ public class Bar {
 
     }
 
-    
     /**
-     * cette méthode enlève au crédit du client la somme équivalent de la boisson choisi
+     * cette méthode enlève au crédit du client la somme équivalent de la
+     * boisson choisi
+     *
      * @param client ce paramètre représente le client que l'on joue
      */
     public void payer(Personnage client) {
@@ -97,7 +97,7 @@ public class Bar {
         client.soldeDuCompte -= dette;
 
     }
-    
+
     /**
      * cette énumération représente toutes les choix de boissons possibles
      */
@@ -114,8 +114,9 @@ public class Bar {
     }
 
     /**
-     * Cette méthode permet de choisir la boisson que l'on veut prendre et calcul la dette en conséquence
-     * 
+     * Cette méthode permet de choisir la boisson que l'on veut prendre et
+     * calcul la dette en conséquence
+     *
      */
     public static int PrendreUneConso(Client joueur) {
 
@@ -159,13 +160,12 @@ public class Bar {
         return drink.prix;
     }
 
-    
     /**
      * Cette méthode permet de se détendre et tenter de draguer
      */
     public void draguer(Client joueur) {
         joueur.tauxHormone -= 10;
-        if(joueur.tauxHormone <0 ){
+        if (joueur.tauxHormone < 0) {
             joueur.tauxHormone = 0;
         }
         System.out.println("Vous venez de rencontrer une jolie fille \nQue lui racontez vous?");
