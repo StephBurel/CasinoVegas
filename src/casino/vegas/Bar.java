@@ -1,36 +1,32 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package casino.vegas;
 
 import static casino.vegas.CasinoVegas.croupier;
 import java.util.Scanner;
 
 /**
- * Cette classe permet d'accéder au bar et de se détendre
+ * Cette classe permet d'acceder au bar et de se detendre
  * 
  */
 public class Bar {
 
     static Scanner keyboard = new Scanner(System.in);
     /**
-     * représente le cumul des du prix total des boissons du consommateur
+     * represente le cumul du prix total des boissons du consommateur
      */
     public int dette = 0;
-    public Client client = new Client();
+    
     private boolean paid = false;
 
     /**
-     * Cette méthode est la méthode lancée au démarrage du bar
+     * Cette methode est la methode lancee au demarrage du bar
      *
      * @param perso est la personne que l'on joue actuellement
      */
     public void demarrer(Client perso) {
 
         int choiceInt = -1;
-        dette = 0;
-        this.client = perso;
+        this.dette = 0;
         boolean wrong = true;
         boolean continuer = true;
         String choice;
@@ -61,13 +57,13 @@ public class Bar {
             wrong = true;
             switch (choiceInt) {
                 case 1:
-                    this.dette -= this.PrendreUneConso(client);
+                    this.dette -= this.PrendreUneConso(perso);
                     break;
                 case 2:
-                    this.dette = this.draguer(client,this.dette);
+                    this.dette = this.draguer(perso,this.dette);
                     break;
                 case 3:
-                    this.payer(client);
+                    this.payer(perso);
                     croupier.testerJoueur();
                     break;
                 default:
@@ -85,10 +81,10 @@ public class Bar {
     }
 
     /**
-     * cette méthode enlève au crédit du client la somme équivalent de la
+     * cette methode enleve au credit du client la somme equivalent de la
      * boisson choisi
      *
-     * @param client ce paramètre représente le client que l'on joue
+     * @param client ce paramceetre represente le client que l'on joue
      */
     public void payer(Personnage client) {
 
@@ -98,13 +94,13 @@ public class Bar {
         paid = true;
         System.out.println("Votre solde est de " + client.soldeDuCompte + "€");
         if(client.soldeDuCompte <0 ){
-            croupier.appelerLaSécurité();
+            croupier.appelerLaSecurite();
         }
 
     }
 
     /**
-     * cette énumération représente toutes les choix de boissons possibles
+     * cette enumeration represente toutes les choix de boissons possibles
      */
     enum boisson {
 
@@ -119,9 +115,11 @@ public class Bar {
     }
 
     /**
-     * Cette méthode permet de choisir la boisson que l'on veut prendre et
-     * calcul la dette en conséquence
+     * Cette methode permet de choisir la boisson que l'on veut prendre et
+     * calcul la dette en consequence
      *
+     * @param joueur ce paramceetre represente le client que l'on joue
+     * @return  la somme de la dette accumule
      */
     public static int PrendreUneConso(Client joueur) {
 
@@ -166,20 +164,23 @@ public class Bar {
                 break;
         }
 
-        joueur.tauxAlcoolémie += drink.alcoolemie;
+        joueur.tauxAlcoolemie += drink.alcoolemie;
         return drink.prix;
     }
 
     /**
-     * Cette méthode permet de se détendre et tenter de draguer pour annuler sa dette et faire baisser son taux d'hormones
+     * Cette methode permet de se detendre et tenter de draguer pour annuler sa dette et faire baisser son taux d'hormones
      * 
+     * @param joueur ce paramceetre represente le client que l'on joue
+     * @param dette la dette que l'on avait initialement
+     * @return  le montant de la dette apres les differentes opération
      */
     public int draguer(Client joueur, int dette) {
         
         int nombreAtrouver, nombreDuJoueur = 100, nombreEssais = 0;
         String nombreString;
         nombreAtrouver = (int) (Math.random() * 50);
-        System.out.println("Si vous êtes bon en drague, l'autre personne paiera pour vous et votre dette sera effacé");
+        System.out.println("Si vous êtes bon en drague, l'autre personne paiera pour vous et votre dette sera efface");
         
         while(nombreDuJoueur != nombreAtrouver)
         {

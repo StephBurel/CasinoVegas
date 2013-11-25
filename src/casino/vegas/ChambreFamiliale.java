@@ -1,21 +1,18 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package casino.vegas;
 
 import static casino.vegas.Chambre.keyboard;
 import static casino.vegas.ChambreLuxe.prendreNourriture;
 
 /**
- * Cette classe hérite de chambre et permet de prendre une chambre familliale
+ * Cette classe herite de chambre et permet de prendre une chambre familliale
  */
 public class ChambreFamiliale extends Chambre {
 
     /**
-     * Cette méthode est celle qui se lance lorsqu'on prend une chambre Familliale
+     * Cette methode est celle qui se lance lorsqu'on prend une chambre Familliale
      *
-     * @param joueur est le personnage joué
+     * @param joueur est le personnage joue
      * @return la dette que devra le joueur à la fin de son passage
      */
     public static int Action(Client joueur) {
@@ -38,7 +35,7 @@ public class ChambreFamiliale extends Chambre {
                     }
                     wrong = false;
                 } catch (Exception e) {
-                    System.out.println("Mauvaise valeur insérée");
+                    System.out.println("Mauvaise valeur inseree");
                 }
             } while (wrong);
             switch (choiceInt) {
@@ -58,21 +55,21 @@ public class ChambreFamiliale extends Chambre {
     }
 
     /**
-     * Permet au joueur de se reposer et de faire baisser le taux d'alcoolémie
+     * Permet au joueur de se reposer et de faire baisser le taux d'alcoolemie
      *
      * @param joueur
      */
     public static void dormir(Client joueur) {
-        joueur.tauxAlcoolémie -= 5;
-        if (joueur.tauxAlcoolémie < 0) {
-            joueur.tauxAlcoolémie = 0;
+        joueur.tauxAlcoolemie -= 5;
+        if (joueur.tauxAlcoolemie < 0) {
+            joueur.tauxAlcoolemie = 0;
         }
 
     }
 
     /**
      *
-     * @param joueur est le personnage joué
+     * @param joueur est le personnage joue
      * @return la dette que devra le joueur à la fin de son passage
      */
     public static int RoomService(Client joueur) {
@@ -92,7 +89,7 @@ public class ChambreFamiliale extends Chambre {
                 }
                 wrong = false;
             } catch (Exception e) {
-                System.out.println("Mauvaise valeur insérée");
+                System.out.println("Mauvaise valeur inseree");
             }
         } while (wrong);
 
@@ -114,14 +111,14 @@ public class ChambreFamiliale extends Chambre {
     /**
      * Vous permet de vous nourrir et de faire baisser le taux d'alcoolemie
      *
-     * @param joueur est le personnage joué
+     * @param joueur est le personnage joue
      */
     protected static void prendreNourriture(Client joueur) {
 
         System.out.println("Vous venez de manger");
-        joueur.tauxAlcoolémie -= 5;
-        if (joueur.tauxAlcoolémie < 0) {
-            joueur.tauxAlcoolémie = 0;
+        joueur.tauxAlcoolemie -= 5;
+        if (joueur.tauxAlcoolemie < 0) {
+            joueur.tauxAlcoolemie = 0;
         }
 
 
@@ -129,7 +126,7 @@ public class ChambreFamiliale extends Chambre {
     }
 
     /**
-     * Cette méthode vous permet de prendre une boisson
+     * Cette methode vous permet de prendre une boisson
      *
      * @param joueur
      * @return la dette que vous devrez payer

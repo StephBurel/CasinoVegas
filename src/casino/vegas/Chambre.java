@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package casino.vegas;
 
 import static casino.vegas.CasinoVegas.croupier;
@@ -9,12 +6,11 @@ import java.util.Scanner;
 
 /**
  * Cette classe permet de pouvoir prendre une chambre et ainsi de changer nos attributs
- * @author 
  */
 public class Chambre {
 
     /**
-     * C'est ce que le client devra payer a la fin pour payer tout ce qu'il a consommé
+     * C'est ce que le client devra payer a la fin pour payer tout ce qu'il a consomme
      */
     public int dette = 0;
     /**
@@ -25,9 +21,9 @@ public class Chambre {
     
 
     /**
-     * C'est ce qui est lancé quand on entre dans la chambre
+     * C'est ce qui est lance quand on entre dans la chambre
      *
-     * @param joueur : le personnage joué
+     * @param joueur : le personnage joue
      */
     public void demarrer(Client joueur) {
 
@@ -36,7 +32,7 @@ public class Chambre {
         System.out.println("Bienvenue dans l'hôtel\nQue voulez-vous faire?");
         System.out.println("Votre solde est de " + joueur.soldeDuCompte + "€");
         System.out.println("Bienvenue à l'hotel du Casino"
-                + "\nVeuillez choisir la chambre désirée"
+                + "\nVeuillez choisir la chambre desiree"
                 + "\n pour prendre une chambre de luxe (100€) tapez 1"
                 + "\n pour prendre une chambre familiale (60€) tapez 2"
                 + "\n pour une chambre standard (50€) tapez 3"
@@ -50,7 +46,7 @@ public class Chambre {
                 }
                 wrong = false;
             } catch (Exception e) {
-                System.out.println("Mauvaise valeur insérée");
+                System.out.println("Mauvaise valeur inseree");
             }
         } while (wrong);
 
@@ -77,9 +73,9 @@ public class Chambre {
     }
 
     /**
-     * Méthode réglant les dettes que doit le joueur
+     * Methode reglant les dettes que doit le joueur
      *
-     * @param joueur le personnage joué
+     * @param joueur le personnage joue
      */
     public void PrendreUneChambre(Personnage joueur) {
         
@@ -87,7 +83,7 @@ public class Chambre {
         System.out.println("Vous avez payer " + this.dette + "€");
         System.out.println("Votre solde est de " + joueur.soldeDuCompte + "€");
              if(joueur.soldeDuCompte <0 ){
-            croupier.appelerLaSécurité();
+            croupier.appelerLaSecurite();
         }
 
     }

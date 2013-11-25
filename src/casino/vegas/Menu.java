@@ -1,8 +1,5 @@
-/**
- * Classe qui permet au joueur de naviguer dans l'espace de jeu et de quitter celui-ci
- * Elle permet également le démarrage du jeu
- * 
- * @ auteur : Amélie Ouillé
+/** 
+ * @ auteur : Amelie Ouille
  */
 package casino.vegas;
 
@@ -10,46 +7,50 @@ import static casino.vegas.CasinoVegas.joueur;
 
 import java.util.Scanner;
 
-
+/**
+ * Classe qui permet au joueur de naviguer dans l'espace de jeu et de quitter celui-ci
+ * Elle permet egalement le demarrage du jeu
+ * 
+ */
 public class Menu {
     Scanner keyboard = new Scanner (System.in);
     
     /**
-     * constructeur qui permet à l'utilisateur de créer son personnage
-     * et de faire les réglages des différents paramètres
+     * constructeur qui permet à l'utilisateur de creer son personnage
+     * et de faire les reglages des differents parametres
      */
     public Menu ()
     {
         System.out.println("Bienvenue dans le Casino !!!");
         
-        System.out.println(" \nLe jeu commencera lorsque vous aurez défini les réglages");
+        System.out.println(" \nLe jeu commencera lorsque vous aurez defini les reglages");
         
-        joueur.réglageJoueur();
+        joueur.reglageJoueur();
       
 
     }
     
     
     /**
-     * Méthode qui permet de d'appeler la méthode dans Client
-     * cette méthode permet de choisir l'activité que l'utilisateur souhaite faire
+     * Methode qui permet de d'appeler la methode dans Client
+     * cette methode permet de choisir l'activite que l'utilisateur souhaite faire
      */
-    public void activité()
+    public void activite()
     {
-        joueur.faireActivité();
+        joueur.faireActivite();
     }
     
     
     /**
      * fonction qui permet à l'utilisateur de choisir si il souhaite continuer
-     * à jouer et donc choisir une nouvelle activité ou si il souhaite quitter 
-     * définitivement le jeu
+     * à jouer et donc choisir une nouvelle activite ou si il souhaite quitter 
+     * definitivement le jeu
      */
     boolean rejouer()
     {
         String reponse;
-        System.out.println("Voulez-vous faire une autre activité ou souhaitez-vous quitter ?"
-                + "\nTapez 1 pour choisir une nouvelle activité (tout autre réponse équivaut à quitter définitivement le jeu)");
+        System.out.println("Voulez-vous faire une autre activite ou souhaitez-vous quitter ?"
+                + "\nTapez 1 pour choisir une nouvelle activite (tout autre reponse equivaut à quitter definitivement le jeu)");
         reponse = keyboard.nextLine();
         if (reponse.equals("1"))
         {

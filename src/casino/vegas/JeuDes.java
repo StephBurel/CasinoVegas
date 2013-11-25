@@ -1,7 +1,5 @@
-/**
- * Classe qui permet de jouer au 421
- * 
- * @ auteur : Amélie Ouillé
+/** 
+ * @ auteur : Amelie Ouille
  */
 package casino.vegas;
 
@@ -10,7 +8,10 @@ import static casino.vegas.CasinoVegas.croupier;
 
 import java.util.Scanner;
 
-
+/**
+ * Classe qui permet de jouer au 421
+ * 
+ */
 public class JeuDes extends Jeux {
     
     public static int PRIXPARTIE = 3;
@@ -25,8 +26,8 @@ public class JeuDes extends Jeux {
     Scanner keyboard = new Scanner(System.in);
     
     /**
-     * Méthode qui permet de démarrer le jeu,
-     * tester l'état du joueur à tout moment
+     * Methode qui permet de demarrer le jeu,
+     * tester l'etat du joueur à tout moment
      * et menu pour rejouer
      */
     public void commencer ()
@@ -69,27 +70,27 @@ public class JeuDes extends Jeux {
             
             if (joueur.soldeDuCompte< PRIXPARTIE)
             {
-                System.out.println("Désolé vous n'avez plus assez d'argent pour jouer !");
+                System.out.println("Desole vous n'avez plus assez d'argent pour jouer !");
             }
             
         }
     }
     
     /**
-     * méthode qui permet d'afficher les règles du jeu
+     * methode qui permet d'afficher les regles du jeu
      */
     public void regles()
     {
-        System.out.println("\nVoici les règles du jeu :"
-                + "\n  Si vous faites 421 en moins de 3 lancés vous gagné les 10 €"
-                + "\n  Si vous faites 421 en moins de 5 lancés vous gagné 5€"
-                + "\n  Si il vous faut plus de lancés, vous ne gagné rien...");
+        System.out.println("\nVoici les regles du jeu :"
+                + "\n  Si vous faites 421 en moins de 3 lances vous gagne les 10 €"
+                + "\n  Si vous faites 421 en moins de 5 lances vous gagne 5€"
+                + "\n  Si il vous faut plus de lances, vous ne gagne rien...");
     }
     
     
     
     /**
-     * methode permettant de tester l'état du joueur et voir si il est necessaire d'appeler la sécurité
+     * methode permettant de tester l'etat du joueur et voir si il est necessaire d'appeler la securite
      * ou un psychologue.
      */
     public void etatJoueur()
@@ -100,15 +101,15 @@ public class JeuDes extends Jeux {
             }
             else if (this.nbJeu > 7 && this.nbJeu<13)
             {
-                System.out.println("Vous êtes accro, tentez de vous arréter au plus vite !!!");
-                joueur.dépendanceJeu --;
+                System.out.println("Vous êtes accro, tentez de vous arreter au plus vite !!!");
+                joueur.dependanceJeu --;
             }
             else if(this.nbJeu >= 13)
             {
-                System.out.println("Votre état devient réellement critique !"
+                System.out.println("Votre etat devient reellement critique !"
                         + "\nVous devez ralentir la cadence ! "
                         + "\nVous perdez beaucoup d'argent et devenez dangereusement accro");
-                joueur.dépendanceJeu -=3;
+                joueur.dependanceJeu -=3;
                 joueur.etatPsycho --;
             }
             
@@ -117,32 +118,32 @@ public class JeuDes extends Jeux {
     
     
     /**
-     * Méthode qui permet de savoir combien le joueur gagne
-     * et le créditer sur son compte.
+     * Methode qui permet de savoir combien le joueur gagne
+     * et le crediter sur son compte.
      */
     public void resultat()
     {
         if (this.nbLance < 3)
         {
-            System.out.println("Félicitation vous avez réussi en moins de 3 lancés !"
+            System.out.println("Felicitation vous avez reussi en moins de 3 lances !"
                     + "\nVous remportez donc 10€");
             joueur.soldeDuCompte += GAINPOSSIBLE;
         }
         else if (this.nbLance <5)
         {
-            System.out.println("Vous avez réussi en moins de 5 lancés"
+            System.out.println("Vous avez reussi en moins de 5 lances"
                     + "\nVous remportez donc 5€");
             joueur.soldeDuCompte += (GAINPOSSIBLE/2);
         }
         else
         {
-            System.out.println("Désolé vous ne gagnez rien");
+            System.out.println("Desole vous ne gagnez rien");
         }
     }
     
 
     /**
-     * Méthode qui permet de jouer et de lancer les dès
+     * Methode qui permet de jouer et de lancer les des
      * jusqu'à obtention de 421
      */
     public void jouer()
@@ -159,7 +160,7 @@ public class JeuDes extends Jeux {
             while (this.diceAbis == 0 || this.diceBbis == 0 || this.diceCbis ==0)
             {
                 this.nbLance ++;
-                // test du dé A
+                // test du de A
                 if (this.diceA != 4 && this.diceA != 2 && this.diceA != 1 && this.diceAbis == 0)
                 {
                     this.diceA = (int) (Math.random() * 6 ) +1;
@@ -173,7 +174,7 @@ public class JeuDes extends Jeux {
                     this.diceA = (int) (Math.random() * 6 ) +1;
                 }
 
-                // test du dé B
+                // test du de B
                 if (this.diceB != 4 && this.diceB != 2 && this.diceB != 1 && this.diceBbis == 0)
                 {
                     this.diceB = (int) (Math.random() * 6 ) +1;
@@ -187,7 +188,7 @@ public class JeuDes extends Jeux {
                     this.diceB = (int) (Math.random() * 6 ) +1;
                 }
 
-                // test du dé C
+                // test du de C
                 if (this.diceC != 4 && this.diceC != 2 && this.diceC != 1 && this.diceCbis == 0)
                 {
                     this.diceC = (int) (Math.random() * 6 ) +1;

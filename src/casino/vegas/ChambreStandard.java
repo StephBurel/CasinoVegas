@@ -1,21 +1,18 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package casino.vegas;
 
 import static casino.vegas.Chambre.keyboard;
 import static casino.vegas.ChambreLuxe.prendreNourriture;
 
 /**
- * Cette classe hérite de chambre et permet de prendre une chambre standard
+ * Cette classe herite de chambre et permet de prendre une chambre standard
  */
 public class ChambreStandard extends Chambre {
 
     /**
-     * Cette méthode est celle qui se lance lorsqu'on prend une chambre standard
+     * Cette methode est celle qui se lance lorsqu'on prend une chambre standard
      *
-     * @param joueur est le personnage joué
+     * @param joueur est le personnage joue
      * @return la dette que doit le joueur à la fin
      */
     public static int Action(Client joueur) {
@@ -38,7 +35,7 @@ public class ChambreStandard extends Chambre {
                     }
                     wrong = false;
                 } catch (Exception e) {
-                    System.out.println("Mauvaise valeur insérée");
+                    System.out.println("Mauvaise valeur inseree");
                 }
             } while (wrong);
             switch (choiceInt) {
@@ -57,14 +54,14 @@ public class ChambreStandard extends Chambre {
     }
 
     /**
-     * Permet au joueur de se reposer et de faire baisser le taux d'alcoolémie
+     * Permet au joueur de se reposer et de faire baisser le taux d'alcoolemie
      *
-     * @param joueur est le personnage joué
+     * @param joueur est le personnage joue
      */
     public static void dormir(Client joueur) {
-        joueur.tauxAlcoolémie -= 5;
-        if (joueur.tauxAlcoolémie < 0) {
-            joueur.tauxAlcoolémie = 0;
+        joueur.tauxAlcoolemie -= 5;
+        if (joueur.tauxAlcoolemie < 0) {
+            joueur.tauxAlcoolemie = 0;
         }
         joueur.etatPsycho++;
         if (joueur.etatPsycho > 6) {
@@ -75,10 +72,10 @@ public class ChambreStandard extends Chambre {
     }
 
     /**
-     * Cette méthode permet d'appeler le room service donc soit de prendre une
+     * Cette methode permet d'appeler le room service donc soit de prendre une
      * boisson soit de la nourriture
      *
-     * @param joueur est le personnage joué
+     * @param joueur est le personnage joue
      * @return la dette que doit le joueur à la fin
      */
     public static int RoomService(Client joueur) {
@@ -98,7 +95,7 @@ public class ChambreStandard extends Chambre {
                 }
                 wrong = false;
             } catch (Exception e) {
-                System.out.println("Mauvaise valeur insérée");
+                System.out.println("Mauvaise valeur inseree");
             }
         } while (wrong);
 
@@ -120,16 +117,16 @@ public class ChambreStandard extends Chambre {
     }
 
     /**
-     * Cette méthode permet de prendre de la nourriture
+     * Cette methode permet de prendre de la nourriture
      *
-     * @param joueur est le personnage joué
+     * @param joueur est le personnage joue
      */
     protected static void prendreNourriture(Client joueur) {
 
         System.out.println("Vous venez de manger");
-        joueur.tauxAlcoolémie -= 2;
-        if (joueur.tauxAlcoolémie < 0) {
-            joueur.tauxAlcoolémie = 0;
+        joueur.tauxAlcoolemie -= 2;
+        if (joueur.tauxAlcoolemie < 0) {
+            joueur.tauxAlcoolemie = 0;
         }
 
 
@@ -137,9 +134,9 @@ public class ChambreStandard extends Chambre {
     }
 
     /**
-     * Cette méthode permet de prendre des boissons
+     * Cette methode permet de prendre des boissons
      *
-     * @param joueur est le personnage joué
+     * @param joueur est le personnage joue
      * @return la somme des boissons qu'a pris le joueur
      */
     protected static int prendreBoisson(Client joueur) {

@@ -1,8 +1,5 @@
-/**
- * Classe abstraite qui permet de mettre en place les différents jeux
- * Elle permet de faire le choix entre les jeux et de rejouer ou non 
- * 
- * @ auteur : Amélie Ouillé
+/** 
+ * @ auteur : Amelie Ouille
  */
 package casino.vegas;
 
@@ -15,24 +12,28 @@ import static casino.vegas.CasinoVegas.roulette;
 import java.util.Scanner;
 
 
-
+/**
+ * Classe abstraite qui permet de mettre en place les differents jeux
+ * Elle permet de faire le choix entre les jeux et de rejouer ou non 
+ * 
+ */
 public abstract class Jeux {
     static Scanner keyboard = new Scanner(System.in);
     static boolean resterDansLeCasino = true;
     
     /**
-     * Methode qui permettra a chaque jeu de débuter
+     * Methode qui permettra a chaque jeu de debuter
      */
     public abstract void commencer ();
     
     /**
-     * Methode qui permettra de tester l'état du joueur dans chaque jeu
+     * Methode qui permettra de tester l'etat du joueur dans chaque jeu
      */
     public abstract void etatJoueur();
     
     /**
      * Message de bienvenue dans le casino
-     * Choix du jeu que l'on souhaite réaliser
+     * Choix du jeu que l'on souhaite realiser
      * (tous les jeux ne sont pas disponnibles en fonction de l'âge)
      */
     public static void demarrer(){
@@ -45,7 +46,7 @@ public abstract class Jeux {
         {
             if (joueur.age < 21)
             {
-                System.out.println ("Vous êtes trop jeune pour jouer aux jeux de casino, vous pouvez uniquement jouer au démineur"
+                System.out.println ("Vous êtes trop jeune pour jouer aux jeux de casino, vous pouvez uniquement jouer au demineur"
                         + "\nVoulez-vous y jouer ? Dites oui pour y jouer");
                 choixJeu = keyboard.nextLine();
                 if (choixJeu == "oui")
@@ -63,7 +64,7 @@ public abstract class Jeux {
                         + "\n Pour jouer au 421 tapez 1"
                         + "\n Pour jouer à la roulette tapez 2"
                         + "\n Pour jouer au Jackpot tapez 3"
-                        + "\n Pour jouer au démineur tapez 4");
+                        + "\n Pour jouer au demineur tapez 4");
                 boolean recommencer = true;
                 while (recommencer)
                 {
@@ -88,7 +89,7 @@ public abstract class Jeux {
                             break;
                         default :
                             recommencer = true;
-                            System.out.println("Désolé, la saisie n'est pas valide... Veuillez recommencer");
+                            System.out.println("Desole, la saisie n'est pas valide... Veuillez recommencer");
                     }
                 }
             }
@@ -98,13 +99,13 @@ public abstract class Jeux {
     }
     
     /**
-     * Methode qui permet de rejouer ou de retourner au menu principale pour choisir une autre activité ou quitter
+     * Methode qui permet de rejouer ou de retourner au menu principale pour choisir une autre activite ou quitter
      */
     public static void rejouerOuNon()
     {
         String reponse;
         System.out.println("\n\nVoulez-vous rester dans le casino et faire d'autres jeu, ou souhaitez-vous en sortir ?"
-                + "\nTapez 1 pour rester (tout autre caractère pour sortir)");
+                + "\nTapez 1 pour rester (tout autre caractere pour sortir)");
         reponse = keyboard.nextLine();
         
         if (reponse.equals("1"))

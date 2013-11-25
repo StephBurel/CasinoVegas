@@ -1,8 +1,6 @@
-/**
- * Classe qui permet de générer des clients qui vont pouvoir faire de activitées
- * Permet de se rediriger vers les différentes activités (uniquement les classes primaires qui redirigerons elles-mêmes par la suite
- * 
- * @ auteur : Amélie Ouillé
+
+/** 
+ * @ auteur : Amelie Ouille
  */
 package casino.vegas;
 
@@ -15,54 +13,58 @@ import static casino.vegas.CasinoVegas.chambre;
 import static casino.vegas.CasinoVegas.joueur;
 
 
-
+/**
+ * Classe qui permet de generer des clients qui vont pouvoir faire de activitees
+ * Permet de se rediriger vers les differentes activites (uniquement les classes primaires qui redirigerons elles-mêmes par la suite
+ * 
+ */
 public class Client extends Personnage implements Braqueur{
     
     Scanner keyboard = new Scanner(System.in);
     String ageString;
     String etatPsychoNumStr;
-    int motivation, tauxAlcoolémie, tauxHormone, dépendanceJeu;
-    String choixActivité;
+    int motivation, tauxAlcoolemie, tauxHormone, dependanceJeu;
+    String choixActivite;
     
     
     /**
-     * constructeur vide qui permet de créer le personnage de l'utilisateur.
-     * Les paramètres du personnages seront inplémentés plus tard
+     * constructeur vide qui permet de creer le personnage de l'utilisateur.
+     * Les parametres du personnages seront inplementes plus tard
      */
     public Client ()
     {
-        // constructeur vide pour créer le joueur
+        // constructeur vide pour creer le joueur
     }
     
     
     /**
-     * constructeur permettant de créer les personnages fictifs.
-     * on les implémentes avec tous les paramètres réglés.
+     * constructeur permettant de creer les personnages fictifs.
+     * on les implementes avec tous les parametres regles.
      */
-    public Client (String nom, String prénom, int age, int soldeCompte, int etatPsycho, int motivation, int tauxAlcoolémie, int tauxHormones)
+    public Client (String nom, String prenom, int age, int soldeCompte, int etatPsycho, int motivation, int tauxAlcoolemie, int tauxHormones)
     {
         this.nom = nom;
-        this.prénom = prénom;
+        this.prenom = prenom;
         this.age = age;
         this.soldeDuCompte = soldeCompte;
         this.etatPsycho = etatPsycho;
         definirEtatPsycho(this.etatPsycho);
         this.motivation = motivation;
-        this.tauxAlcoolémie = tauxAlcoolémie;
+        this.tauxAlcoolemie = tauxAlcoolemie;
         this.tauxHormone = tauxHormones ;
     }
     
     
     /**
-     * méthode qui permet de définir les parametres du personnage de l'utilisateur
+     * methode qui permet de definir les parametres du personnage de l'utilisateur
      * (gestion des erreurs de saisies)
      */
-    public void réglageJoueur()
+    public void reglageJoueur()
     {
         boolean recommencer = true ;
         
-        System.out.println("Vous allez être un client du Casino Vegas \nNous allons choisir vos caractéristiques \nEntrez votre prénom :");
-        this.prénom = keyboard.nextLine();
+        System.out.println("Vous allez être un client du Casino Vegas \nNous allons choisir vos caracteristiques \nEntrez votre prenom :");
+        this.prenom = keyboard.nextLine();
         System.out.println("Entrez votre nom");
         this.nom = keyboard.nextLine();
         System.out.println("Entrez votre age");
@@ -83,7 +85,7 @@ public class Client extends Personnage implements Braqueur{
         }
         
         
-        System.out.println("Choisissez votre état psychologique : \n   Entrez une valeur comprise entre 1 et 6");
+        System.out.println("Choisissez votre etat psychologique : \n   Entrez une valeur comprise entre 1 et 6");
         recommencer = true;
         while (recommencer)
         {
@@ -114,42 +116,42 @@ public class Client extends Personnage implements Braqueur{
         definirEtatPsycho(this.etatPsycho );
         
         this.soldeDuCompte = 500;
-        this.tauxAlcoolémie = 0;
+        this.tauxAlcoolemie = 0;
         this.motivation = 50 ;
         this.tauxHormone = 25 ;
-        this.dépendanceJeu = 20;
+        this.dependanceJeu = 20;
         
         
-        // réécrire le profil
+        // reecrire le profil
         System.out.println("\n\nVotre profil est le suivant : "
                 + "\n Nom : " + this.nom
-                + "\n Prénom : " + this.prénom 
+                + "\n Prenom : " + this.prenom 
                 + "\n Age : " + this.age + " ans"
                 + "\n Solde du compte : " + this.soldeDuCompte + " €"
                 + "\n Etat Psychologique : " + this.etatPsychoStr
                 + "\n Motivation : " + this.motivation + " %"
-                + "\n Taux d'alcoolémie : " + this.tauxAlcoolémie + " %"
+                + "\n Taux d'alcoolemie : " + this.tauxAlcoolemie + " %"
                 + "\n Taux d'hormones : " + this.tauxHormone +" %"
-                + "\n Taux de dépendance aux jeux : " + this.dépendanceJeu + " %");
+                + "\n Taux de dependance aux jeux : " + this.dependanceJeu + " %");
         
     }
     
     
     
     /**
-     * Méthode qui permet à l'utilisateur de choisir dans quel lieu il souhaite se rendre
+     * Methode qui permet à l'utilisateur de choisir dans quel lieu il souhaite se rendre
      * Choix entre les classes Jeux, bar et chambre
      */
-    public void faireActivité()
+    public void faireActivite()
     {
-        this.choixActivité = "0";
+        this.choixActivite = "0";
         boolean test = false;
         boolean recommencer = true;
         
         while (!test)
         {
         
-            System.out.println("\n\nQuelle activité souhaitez-vous faire ?"
+            System.out.println("\n\nQuelle activite souhaitez-vous faire ?"
                     + "\n  Tapez 1 pour entrer dans le casino (jeux)"
                     + "\n  Tapez 2 pour aller au bar"
                     + "\n  Tapez 3 pour aller dans une chambre de l'hotel");
@@ -158,8 +160,8 @@ public class Client extends Personnage implements Braqueur{
         do{
         
             try{
-                this.choixActivité = keyboard.nextLine();
-                switch (this.choixActivité)
+                this.choixActivite = keyboard.nextLine();
+                switch (this.choixActivite)
                     {
                     case "1" :
                         recommencer = false;
@@ -183,7 +185,7 @@ public class Client extends Personnage implements Braqueur{
             
             
 
-            switch (this.choixActivité)
+            switch (this.choixActivite)
             {
                 case "1" :
                     jeu.demarrer();
@@ -198,7 +200,7 @@ public class Client extends Personnage implements Braqueur{
                     test= true;
                     break;
                 default :
-                    System.out.println("\n\nLa saisie n'est pas valide, veuillez rééssayer...");
+                    System.out.println("\n\nLa saisie n'est pas valide, veuillez reessayer...");
                  
             }
         }
@@ -209,7 +211,7 @@ public class Client extends Personnage implements Braqueur{
     
     /**
      * Methode qui permet à l'utilisateur de se cacher lorsque le braqueur fait son apparition.
-     * Le temps qu'il met à se cacher est défini par le temps qu'il met à resoudre le jeu du plus ou moins.
+     * Le temps qu'il met à se cacher est defini par le temps qu'il met à resoudre le jeu du plus ou moins.
      */
     public void seCacher()
     {
@@ -217,7 +219,7 @@ public class Client extends Personnage implements Braqueur{
         String nombreString;
         
         nombreAtrouver = (int) (Math.random() * 50);
-        System.out.println("Pour vous cacher à temps, il faut que vous trouviez le nombre recherché en moins de 5 essais"
+        System.out.println("Pour vous cacher à temps, il faut que vous trouviez le nombre recherche en moins de 5 essais"
                 + "\nEntrez un nombre compris entre 0 et 50");
         
         while(nombreDuJoueur != nombreAtrouver)
@@ -254,12 +256,12 @@ public class Client extends Personnage implements Braqueur{
         if (nombreEssais <= 5)
         {
             System.out.println("Felicitation, vous avez pu vous cacher à temps, vous êtes sain et sauf !"
-                    + "\nLe braqueur vient d'être arrété par la police, vous pouvez continuer à jouer");
+                    + "\nLe braqueur vient d'être arrete par la police, vous pouvez continuer à jouer");
         }
         else
         {
-            System.out.println("Vous avez été trop lent à vous cacher..."
-                    + "\nLe braqueur vous a trouvé sur sa route et vous a tué"
+            System.out.println("Vous avez ete trop lent à vous cacher..."
+                    + "\nLe braqueur vous a trouve sur sa route et vous a tue"
                     + "\n     GAME OVER");
             System.exit(0);
         }
@@ -269,7 +271,7 @@ public class Client extends Personnage implements Braqueur{
     
     
     /**
-     * Méthode qui permet à l'utilisateur de s'interposer lorsque le braqueur fait son apparition
+     * Methode qui permet à l'utilisateur de s'interposer lorsque le braqueur fait son apparition
      * Il a une chance sur deux pour que cela fonctionne, sinon il se fait tuer.
      */
     public void interposerDansBraquage()
@@ -280,14 +282,14 @@ public class Client extends Personnage implements Braqueur{
         chance = (int) (Math.random() * 100);
         if (chance <= 50)
         {
-            System.out.println("Vous avez survécu !! Félicitation vous avez sauvez votre vie et vous avez protégé notre cher casino ! "
+            System.out.println("Vous avez survecu !! Felicitation vous avez sauvez votre vie et vous avez protege notre cher casino ! "
                     + "\nVeuillez accepter ces 1000 euros en guise de remerciement");
             joueur.soldeDuCompte += 1000;
         }
         else
         {
             System.out.println("Nous gratifions votre courage mais malheureusement celui-ci n'a pas suffit"
-                    + "\nLe braqueur a été plus fort que vous et vous a marlheureusement tué"
+                    + "\nLe braqueur a ete plus fort que vous et vous a marlheureusement tue"
                     + "\n     GAME OVER");
             System.exit(0);
         }
@@ -296,7 +298,7 @@ public class Client extends Personnage implements Braqueur{
     
     
     /**
-     * Methode qui permet à l'utilisateur de choisir l'action à exécuter lors de l'apparition du braqueur
+     * Methode qui permet à l'utilisateur de choisir l'action à executer lors de l'apparition du braqueur
      */
     public void choixActionBraquage()
     {
@@ -337,7 +339,7 @@ public class Client extends Personnage implements Braqueur{
     
     
 /**
- * Méthodes implémentées par l'interface
+ * Methodes implementees par l'interface
  * Cas où le braqueur est un client de CasinoVegas
  */
     

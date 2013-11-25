@@ -1,25 +1,26 @@
-/**
- * Classe permettant de définir l'ensemble des personnages (clients et employés)
- * Elle permet de définir l'état psychologique des personnages
- * 
- * @ auteur : Amélie Ouillé
+/** 
+ * @ auteur : Amelie Ouille
  */
 package casino.vegas;
 
-
+/**
+ * Classe permettant de definir l'ensemble des personnages (clients et employes)
+ * Elle permet de definir l'etat psychologique des personnages
+ * 
+ */
 public class Personnage {
     
-    String prénom, nom;
+    String prenom, nom;
     int age, etatPsycho;
     float soldeDuCompte;
     String etatPsychoStr;
     
-    enum etatPsychoEnum { Suicidaire, Dépressif , AccroAuJeu , Anxieux, Joyeux, Amoureux}
+    enum etatPsychoEnum { Suicidaire, Depressif , AccroAuJeu , Anxieux, Joyeux, Amoureux}
     
     
     /**
-     * Méthode qui permet de définir l'état psychologique de chacun de joueur.
-     * Elle utilise le nombre qui correspond à un état pour y associer son titre.
+     * Methode qui permet de definir l'etat psychologique de chacun de joueur.
+     * Elle utilise le nombre qui correspond à un etat pour y associer son titre.
      */
     public void definirEtatPsycho (int number)
     {
@@ -29,7 +30,7 @@ public class Personnage {
                 this.etatPsychoStr = casino.vegas.Personnage.etatPsychoEnum.Suicidaire.toString();
                 break;
             case 2 :
-                this.etatPsychoStr = casino.vegas.Personnage.etatPsychoEnum.Dépressif.toString();
+                this.etatPsychoStr = casino.vegas.Personnage.etatPsychoEnum.Depressif.toString();
                 break;
             case 3 :
                 this.etatPsychoStr = casino.vegas.Personnage.etatPsychoEnum.AccroAuJeu.toString();

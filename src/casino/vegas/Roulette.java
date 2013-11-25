@@ -1,7 +1,5 @@
-/**
- * Classe pour jouer à la roulette
- * 
- * @ auteur : Amélie Ouillé
+/** 
+ * @ auteur : Amelie Ouille
  */
 package casino.vegas;
 
@@ -10,7 +8,10 @@ import static casino.vegas.CasinoVegas.croupier;
 
 import java.util.Scanner;
 
-
+/**
+ * Classe pour jouer à la roulette
+ * 
+ */
 public class Roulette extends Jeux {
     
     int nombreSorti, gainPossible, nbLance =0;
@@ -19,8 +20,8 @@ public class Roulette extends Jeux {
     
     
     /**
-     * Méthode qui permet de démarrer le jeu,
-     * tester l'état du joueur à tout moment
+     * Methode qui permet de demarrer le jeu,
+     * tester l'etat du joueur à tout moment
      * et menu pour rejouer
      */
     public void commencer ()
@@ -28,11 +29,11 @@ public class Roulette extends Jeux {
         rejouer = true;
         etatJoueur();
         System.out.println("Bienvenue dans le jeux de la roulette");
-        règles();
+        regles();
         while(this.rejouer && joueur.soldeDuCompte > 20)
         {
             this.nbLance ++;
-            lancéDuCroupier();
+            lanceDuCroupier();
             miseJoueur();
             System.out.println("Les jeux sont faits"
                     + "\n..."
@@ -58,7 +59,7 @@ public class Roulette extends Jeux {
     
     
     /**
-     * methode permettant de tester l'état du joueur et voir si il est necessaire d'appeler la sécurité
+     * methode permettant de tester l'etat du joueur et voir si il est necessaire d'appeler la securite
      * ou un psychologue.
      */
     public void etatJoueur()
@@ -69,15 +70,15 @@ public class Roulette extends Jeux {
             }
             else if (this.nbLance > 7 && this.nbLance<13)
             {
-                System.out.println("Vous êtes accro, tentez de vous arréter au plus vite !!!");
-                joueur.dépendanceJeu --;
+                System.out.println("Vous êtes accro, tentez de vous arreter au plus vite !!!");
+                joueur.dependanceJeu --;
             }
             else if(this.nbLance >= 13)
             {
-                System.out.println("Votre état devient réellement critique !"
+                System.out.println("Votre etat devient reellement critique !"
                         + "\nVous devez ralentir la cadence ! "
                         + "\nVous perdez beaucoup d'argent et devenez dangereusement accro");
-                joueur.dépendanceJeu -=3;
+                joueur.dependanceJeu -=3;
                 joueur.etatPsycho --;
             }
             
@@ -85,7 +86,7 @@ public class Roulette extends Jeux {
     }
     
     /**
-     * Méthode qui permet de rejouer
+     * Methode qui permet de rejouer
      */
     public void rejouerRoulette()
     {
@@ -106,19 +107,19 @@ public class Roulette extends Jeux {
     
     
     /**
-     * méthode qui permet d'afficher les règles du jeu
+     * methode qui permet d'afficher les regles du jeu
      */
-    public void règles()
+    public void regles()
     {
-        System.out.println("Pour jouer : vous devait choisir un ou plusieurs numéros sur lesquels miser et la somme à miser"
-                + "\nLa premiere étape sera le nombre de mise que vous souhaitez faire"
-                + "\nLa deuxième sera le nombre que vous souhaitez miser et combien vous voullez miser");
+        System.out.println("Pour jouer : vous devait choisir un ou plusieurs numeros sur lesquels miser et la somme à miser"
+                + "\nLa premiere etape sera le nombre de mise que vous souhaitez faire"
+                + "\nLa deuxieme sera le nombre que vous souhaitez miser et combien vous voullez miser");
     }
     
     
     /**
-     * méthode qui permet de dire si l'on a gagné
-     * et de créditer la somme sur le compte
+     * methode qui permet de dire si l'on a gagne
+     * et de crediter la somme sur le compte
      */
     public void resultat()
     {
@@ -131,15 +132,15 @@ public class Roulette extends Jeux {
             }
             else
             {
-                System.out.println("Croupier : Rien au numéro");
+                System.out.println("Croupier : Rien au numero");
             }
     }
     
     
     /**
-     * methode qui définit le nombre sorti par la roulette
+     * methode qui definit le nombre sorti par la roulette
      */
-    public void lancéDuCroupier()
+    public void lanceDuCroupier()
     {
         this.nombreSorti = (int) (Math.random()*37);
     }
@@ -147,7 +148,7 @@ public class Roulette extends Jeux {
     
     
     /**
-     * méthode qui permet au joueur de choisir sur quoi il veut miser et combien
+     * methode qui permet au joueur de choisir sur quoi il veut miser et combien
      */
     public void miseJoueur()
     {
