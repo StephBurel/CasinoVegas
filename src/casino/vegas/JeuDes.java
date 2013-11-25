@@ -39,7 +39,7 @@ public class JeuDes extends Jeux {
                 + "\nCe jeu vous coute 3€, vous pouvez en gagner 10"
                 + "\nBonne Chance !");
         regles();
-        while(rejouer && joueur.soldeDuCompte<PRIXPARTIE)
+        while(rejouer && joueur.soldeDuCompte>PRIXPARTIE)
         {
             joueur.soldeDuCompte -= PRIXPARTIE;
             this.diceA = 0;

@@ -103,10 +103,10 @@ public class Demineur extends Jeux {
 
         initialiser (tb);
         placerLesBombes (tb);
-        affichage (tb);
+        //affichage (tb);
 
         connaitreNbBombesAlentours (tb);
-        affichage (tb);
+        //affichage (tb);
 
         ajouterLesEtoiles (demin);
         affichage (demin);
@@ -152,7 +152,7 @@ public class Demineur extends Jeux {
         {
             for (int j=1; j<11 ; j++)
             {
-                System.out.print(matrice[i][j]);
+                System.out.print(matrice[i][j] + " ");
             }
             System.out.print("\n");
         }
